@@ -1,0 +1,8 @@
+[
+    {
+        "level": "SEVERE",
+        "message": "http:\/\/laravel.test\/js\/app.js 38219:14 \"[Vue warn]: Error compiling template:\\n\\nTemplates should only be responsible for mapping the state to the UI. Avoid placing tags with side-effects in your templates, such as \\u003Cscript>, as they will not be parsed.\\n\\n93 |      \\u003C\/div>\\n94 |  \\n95 |      \\u003Cscript>\\u003C\/script>\\n   |      ^^^^^^^^^^^^^^^^^\\n96 |  \\n   |  \\n97 |  \\u003C\/div>\\n   |  ^^^^^^\\n\\n(found in \\u003CRoot>)\"",
+        "source": "console-api",
+        "timestamp": 1628888030746
+    }
+]
