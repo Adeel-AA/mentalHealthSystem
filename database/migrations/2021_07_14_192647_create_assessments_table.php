@@ -16,8 +16,8 @@ class CreateAssessmentsTable extends Migration
         Schema::create('assessments', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id');
-            $table->string('title');
-            $table->string('title');
+            $table->string('question_type');
+            $table->string('purpose');
             $table->timestamps();
         });
     }
