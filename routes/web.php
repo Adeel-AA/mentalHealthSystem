@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AssessmentController;
+use App\Http\Controllers\QuestionController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,6 +22,11 @@ Route::get('/', function () {
 Route::middleware('auth')->group(function () {
     Route::get('/assessments/create', [AssessmentController::class, 'create']);
     Route::post('/assessments', [AssessmentController::class, 'store']);
+
+    Route::get('/assessments/{assessment}', [AssessmentController::class, 'show']);
+
+    Route::get('/assessments/{assessment}/questions/create', [QuestionController::class, 'create']);
+    Route::post('/assessments/{assessment}/questions', [QuestionController::class, 'store']);
 });
 
 Auth::routes();

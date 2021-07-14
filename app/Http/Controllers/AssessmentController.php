@@ -19,11 +19,7 @@ class AssessmentController extends Controller
             'purpose' => 'required | max:255'
         ]);
 
-        $assessment = Assessment::create([
-            'user_id' => auth()->id(),
-            'question_type' => $data['question_type'],
-            'purpose' => $data['purpose']
-        ]);
+        $assessment = auth()->user()->assessments()->create($data);
 
         return redirect('/assessments/' . $assessment->id);
     }
