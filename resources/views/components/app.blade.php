@@ -12,7 +12,8 @@
                             </div>
                         @endif
 
-                        {{ __('You are logged in!') }}
+                        {{ $slot }}
+
                     </div>
                 </div>
             </div>
