@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AssessmentController;
 use App\Http\Controllers\QuestionController;
+use App\Http\Controllers\SurveyController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -29,6 +30,7 @@ Route::middleware('auth')->group(function () {
     Route::post('/assessments/{assessment}/questions', [QuestionController::class, 'store']);
 
     Route::get('/surveys/{assessment}-{slug}', [SurveyController::class, 'show']);
+    Route::post('/surveys/{assessment}-{slug}', [SurveyController::class, 'store']);
 });
 
 Auth::routes();
