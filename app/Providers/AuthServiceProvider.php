@@ -27,8 +27,8 @@ class AuthServiceProvider extends ServiceProvider
     {
         $this->registerPolicies();
 
-        Gate::define('create-assessment', function (User $user, Assessment $assessment){
-//            return $assessment->auth()->user()->id()->is(
+        Gate::define('create-assessment', function (User $user) {
+            return $user->is_admin === 1 || $user->is_counsellor === 1;
         });
     }
 }
