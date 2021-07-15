@@ -18,5 +18,11 @@ class QuestionController extends Controller
             'question.question' => 'required | max:255',
             'answers.*.answer' => 'required | max:255'
         ]);
+
+
+        $question = $assessment->questions()->create($data['question']);
+        $question->answers()->createMany($data['answers']);
+
+        return redirect('/assessments/' . $assessment->id);
     }
 }

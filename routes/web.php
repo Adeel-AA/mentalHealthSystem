@@ -27,6 +27,8 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/assessments/{assessment}/questions/create', [QuestionController::class, 'create']);
     Route::post('/assessments/{assessment}/questions', [QuestionController::class, 'store']);
+
+    Route::get('/surveys/{assessment}-{slug}', [SurveyController::class, 'show']);
 });
 
 Auth::routes();
