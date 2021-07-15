@@ -26,6 +26,9 @@ class AssessmentController extends Controller
 
     public function show(Assessment $assessment)
     {
+        //Lazy load questions and answers
+        $assessment->load('questions.answers');
+
         return view('assessments.show', compact('assessment'));
     }
 }
