@@ -28,6 +28,7 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/assessments/{assessment}/questions/create', [QuestionController::class, 'create']);
     Route::post('/assessments/{assessment}/questions', [QuestionController::class, 'store']);
+    Route::delete('/assessments/{assessment}/questions/{question}', [QuestionController::class, 'destroy']);
 
     Route::get('/surveys/{assessment}-{slug}', [SurveyController::class, 'show']);
     Route::post('/surveys/{assessment}-{slug}', [SurveyController::class, 'store']);
