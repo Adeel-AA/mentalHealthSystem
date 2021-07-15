@@ -1,3 +1,35 @@
 <x-app>
-    <a href="/assessments/create" class="btn btn-dark">Create New Assessment</a>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header">{{ __('Dashboard') }}</div>
+
+                    <div class="card-body">
+                        @if (session('status'))
+                            <div class="alert alert-success" role="alert">
+                                {{ session('status') }}
+                            </div>
+                        @endif
+
+                        <div class="card-body">
+                            <ul class="list-group">
+                                @foreach($assessments as $assessment)
+                                    <li class="list-group-item">
+                                        <a href="{{ $assessment->path() }}">{{ $assessment->question_type }}</a>
+                                    </li>
+                                @endforeach
+                            </ul>
+                        </div>
+                        <a href="/assessments/create" class="btn btn-dark">Create New Assessment</a>
+                        <a href="/assessments/create" class="btn btn-dark">My Assessments</a>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+
+
 </x-app>
