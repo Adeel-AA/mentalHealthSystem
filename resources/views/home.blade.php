@@ -21,7 +21,9 @@
                                 @endforeach
                             </ul>
                         </div>
-                        <a href="/assessments/create" class="btn btn-dark">Create New Assessment</a>
+                            @can('create-assessment', $assessments)
+                                <a href="/assessments/create" class="btn btn-dark">Create New Assessment</a>
+                            @endcan
                         <a href="/assessments/create" class="btn btn-dark">My Assessments</a>
                     </div>
                 </div>
