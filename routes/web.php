@@ -3,6 +3,7 @@
 use App\Http\Controllers\AssessmentController;
 use App\Http\Controllers\QuestionController;
 use App\Http\Controllers\SurveyController;
+use App\Http\Controllers\AppointmentController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,6 +22,9 @@ Route::get('/', function () {
 });
 
 Route::middleware('auth')->group(function () {
+
+    Route::get('/appointments', [AppointmentController::class, 'show']);
+
     Route::get('/assessments/create', [AssessmentController::class, 'create']);
     Route::post('/assessments', [AssessmentController::class, 'store']);
 

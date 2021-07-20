@@ -17,14 +17,17 @@
                                 @foreach($assessments as $assessment)
                                     <li class="list-group-item">
                                         <a href="{{ $assessment->path() }}">{{ $assessment->question_type }}</a>
+
+                                        <small id="purpose" class="form-text text-muted">{{ $assessment->purpose }}</small>
+
                                     </li>
                                 @endforeach
                             </ul>
                         </div>
-                            @can('create-assessment', $assessments)
-                                <a href="/assessments/create" class="btn btn-dark">Create New Assessment</a>
-                            @endcan
-                        <a href="/assessments/create" class="btn btn-dark">My Assessments</a>
+                        @can('create-assessment', $assessments)
+                            <a href="/assessments/create" class="btn btn-dark">Create New Assessment</a>
+                        @endcan
+                        <a href="/assessments/create" class="btn btn-dark">Start Assessment</a>
                     </div>
                 </div>
 
