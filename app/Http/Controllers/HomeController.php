@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Models\Assessment;
 
 class HomeController extends Controller
 {
@@ -23,7 +23,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $assessments = auth()->user()->assessments;
+        $assessments = Assessment::all();
 
         return view('home', compact('assessments'));
     }

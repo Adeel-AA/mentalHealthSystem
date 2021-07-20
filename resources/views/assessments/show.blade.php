@@ -1,9 +1,8 @@
 <x-app>
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-md-8">
+            <div class="col-md-6">
                 <div class="card">
-                    <div class="card-header">{{ $assessment->question_type }}</div>
 
                     <div class="card-body">
                         <a class="btn btn-dark" href="/assessments/{{ $assessment->id }}/questions/create">Add New
@@ -11,6 +10,9 @@
                         <a class="btn btn-dark"
                            href="/surveys/{{ $assessment->id}}-{{ Str::slug($assessment->question_type) }}">Take
                             Assessment</a>
+
+                        <h1 class="card-header">{{ $assessment->question_type }}</h1>
+                        <small id="purpose" class="form-text text-muted">{{ $assessment->purpose }}</small>
 
                     </div>
                 </div>
@@ -23,9 +25,11 @@
                                 @foreach($question->answers as $answer)
                                     <li class="list-group-item d-flex justify-content-between">
                                         <div>{{ $answer->answer }}</div>
-                                        <div>{{ intval(($answer->responses->count() * 100) / $question->responses->count()) }}
-                                            %
-                                        </div>
+                                        @if($question->responses->count())
+                                            <div>{{ intval(($answer->responses->count() * 100) / $question->responses->count()) }}
+                                                %
+                                            </div>
+                                        @endif
 
                                     </li>
                                 @endforeach
