@@ -27,10 +27,14 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/appointments', [AppointmentController::class, 'show']);
 
-    Route::get('/availability', [AvailabilityController::class, 'show']);
-    Route::get('/availability/json', [AvailabilityController::class, 'jsonFeed']);
-    Route::post('/availability', [AvailabilityController::class, 'store']);
-    Route::delete('/availability', [AvailabilityController::class, 'destroy']);
+    Route::middleware('can:create-availability,availability')->group(function () {
+
+        Route::get('/availability', [AvailabilityController::class, 'show'])->name('availability');
+        Route::get('/availability/json', [AvailabilityController::class, 'jsonFeed']);
+        Route::post('/availability', [AvailabilityController::class, 'store']);
+        Route::delete('/availability', [AvailabilityController::class, 'destroy']);
+
+    });
 
     Route::get('/assessments/create', [AssessmentController::class, 'create']);
     Route::post('/assessments', [AssessmentController::class, 'store']);

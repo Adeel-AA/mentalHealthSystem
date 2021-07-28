@@ -12,6 +12,9 @@ class AvailabilityController extends Controller
     public function show()
     {
 
+//        if(! Gate::allows('create-availability')){
+//            abort(403);
+//        }
         return view('availability.show');
 
 

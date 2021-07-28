@@ -30,4 +30,6 @@ class Assessment extends Model
     {
         return $this->hasMany(Survey::class);
     }
+
+
 }
