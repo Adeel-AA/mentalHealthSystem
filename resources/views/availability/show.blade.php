@@ -30,10 +30,10 @@
                     events: SITEURL + '/availability/json',
 
                     selectable: true,
-                    editable: true,
+                    // editable: true,
                     businessHours: true,
                     displayEventTime: true,
-                    selectMinDistance: 1,
+                    selectMinDistance: 2,
 
                     initialView: 'dayGridMonth',
                     headerToolbar: {
@@ -59,13 +59,31 @@
                                 end: info.endStr
                             },
                             type: 'POST',
-                            success: function (data) {
+                            success: function () {
                                 alert('Your availability has been successfully ');
                             }
 
                         })
-                        // calendar.getEventSources();
-                        // calendar.refetchEvents()
+                    },
+                    eventClick: function (info) {
+                        var eventDelete = confirm("Do you want to remove this?");
+                        var eventObj = info.event;
+                        
+                        if (eventDelete) {
+                            eventObj.remove();
+                            $.ajax({
+                                url: SITEURL + '/availability',
+                                data: {
+                                    id: eventObj.id
+                                },
+                                type: 'DELETE',
+                                success: function (data) {
+                                    alert('Availability sucessfully deleted');
+                                }
+
+                            })
+                        }
+
                     }
                 });
 

@@ -4,6 +4,7 @@ use App\Http\Controllers\AssessmentController;
 use App\Http\Controllers\QuestionController;
 use App\Http\Controllers\SurveyController;
 use App\Http\Controllers\AppointmentController;
+use App\Http\Controllers\AvailabilityController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -23,7 +24,13 @@ Route::get('/', function () {
 
 Route::middleware('auth')->group(function () {
 
+
     Route::get('/appointments', [AppointmentController::class, 'show']);
+
+    Route::get('/availability', [AvailabilityController::class, 'show']);
+    Route::get('/availability/json', [AvailabilityController::class, 'jsonFeed']);
+    Route::post('/availability', [AvailabilityController::class, 'store']);
+    Route::delete('/availability', [AvailabilityController::class, 'destroy']);
 
     Route::get('/assessments/create', [AssessmentController::class, 'create']);
     Route::post('/assessments', [AssessmentController::class, 'store']);
