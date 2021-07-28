@@ -27,6 +27,7 @@
 
                 var calendar = new FullCalendar.Calendar(calendarEl, {
 
+                    timeZone: 'Europe/London',
                     events: SITEURL + '/availability/json',
 
                     selectable: true,
@@ -68,9 +69,8 @@
                     eventClick: function (info) {
                         var eventDelete = confirm("Do you want to remove this?");
                         var eventObj = info.event;
-                        
+
                         if (eventDelete) {
-                            eventObj.remove();
                             $.ajax({
                                 url: SITEURL + '/availability',
                                 data: {
@@ -78,6 +78,7 @@
                                 },
                                 type: 'DELETE',
                                 success: function (data) {
+                                    eventObj.remove();
                                     alert('Availability sucessfully deleted');
                                 }
 

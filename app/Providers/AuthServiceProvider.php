@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use App\Models\Assessment;
+use App\Models\Availability;
 use App\Models\User;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 use Illuminate\Support\Facades\Gate;
@@ -27,7 +28,7 @@ class AuthServiceProvider extends ServiceProvider
     {
         $this->registerPolicies();
 
-        Gate::define('create-assessment', function (User $user) {
+        Gate::define('create-availability', function (User $user) {
             return $user->is_admin === 1 || $user->is_counsellor === 1;
         });
     }

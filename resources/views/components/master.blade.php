@@ -11,6 +11,7 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="http://unpkg.com/turbolinks"></script>
 
 
     <!-- Fonts -->
@@ -25,13 +26,32 @@
 <div id="app">
     <section class="px-8 py-4 mb-6">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
-            <header class="container mx-auto">
-                <h1>Mental Health System</h1>
-            </header>
+            {{--            <header class="container mx-auto">--}}
+            {{--                <h1>Mental Health System</h1>--}}
+            {{--            </header>--}}
             <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
+
+                <!-- Left Side Of Navbar -->
+                <ul class="navbar-nav mr-auto inline-flex">
+                    @if(auth()->check())
+                        <li class="{{ Request::is('home') ? 'active font-weight-bold' : '' }} nav-item hover:bg-gray-500 rounded">
+                            <a class="nav-link" href="{{ route('home') }}">{{ __('Home') }}</a>
+                        </li>
+                        @can('create-availability')
+                            <li class="{{ Request::is('availability') ? 'active font-weight-bold' : '' }} nav-item hover:bg-gray-500 rounded">
+                                <a class="nav-link" href="{{ route('availability') }}">{{ __('Availability') }}</a>
+                            </li>
+                        @endcan
+                        <li class="{{ Request::is('availability') ? 'active font-weight-bold' : '' }} nav-item hover:bg-gray-500 rounded">
+                            <a class="nav-link" href="{{ route('availability') }}">{{ __('Self-Assessment') }}</a>
+                        </li>
+
+                    @endif
+                </ul>
+                <header class="navbar-brand container justify-content-center">
                     {{ config('app.name', 'Mental Health System') }}
-                </a>
+                </header>
+
                 <button class="navbar-toggler" type="button" data-toggle="collapse"
                         data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
@@ -39,12 +59,6 @@
                 </button>
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav mr-auto">
-                        @if(auth()->check())
-
-                        @endif
-                    </ul>
 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
@@ -91,7 +105,8 @@
 
     {{ $slot }}
 
+    <script></script>
+
 </div>
-<script src="http://unpkg.com/turbolinks"></script>
 </body>
 </html>
