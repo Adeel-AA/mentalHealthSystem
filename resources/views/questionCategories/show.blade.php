@@ -5,19 +5,19 @@
                 <div class="card">
 
                     <div class="card-body">
-                        <a class="btn btn-dark" href="/assessments/{{ $assessment->id }}/questions/create">Add New
+                        <a class="btn btn-dark" href="/questionCategories/{{ $questionCategory->id }}/questions/create">Add New
                             Question</a>
                         <a class="btn btn-dark"
-                           href="/surveys/{{ $assessment->id}}-{{ Str::slug($assessment->question_type) }}">Take
-                            Assessment</a>
+                           href="/surveys/{{ $questionCategory->id}}-{{ Str::slug($questionCategory->question_type) }}">Take
+                            questionCategory</a>
 
-                        <h1 class="card-header">{{ $assessment->question_type }}</h1>
-                        <small id="purpose" class="form-text text-muted">{{ $assessment->purpose }}</small>
+                        <h1 class="card-header">{{ $questionCategory->question_type }}</h1>
+                        <small id="purpose" class="form-text text-muted">{{ $questionCategory->purpose }}</small>
 
                     </div>
                 </div>
 
-                @foreach($assessment->questions as $question)
+                @foreach($questionCategory->questions as $question)
                     <div class="card mt-4">
                         <div class="card-header">{{ $question->question }}</div>
                         <div class="card-body">
@@ -37,7 +37,7 @@
                         </div>
                         <div class="card-footer">
                             <form method="POST"
-                                  action="/assessments/{{ $assessment->id }}/questions/{{ $question->id }}">
+                                  action="/questionCategories/{{ $questionCategory->id }}/questions/{{ $question->id }}">
                                 @method('DELETE')
                                 @csrf
 

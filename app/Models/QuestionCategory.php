@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Assessment extends Model
+class QuestionCategory extends Model
 {
     use HasFactory;
 
@@ -13,7 +13,7 @@ class Assessment extends Model
 
     public function path()
     {
-        return url('/assessments/' . $this->id);
+        return url('/questionCategories/' . $this->id);
     }
 
     public function user()

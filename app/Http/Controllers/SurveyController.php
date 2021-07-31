@@ -2,28 +2,28 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Assessment;
+use App\Models\QuestionCategory;
 use Illuminate\Http\Request;
 
 class SurveyController extends Controller
 {
-    public function show(Assessment $assessment, $slug)
+    public function show(QuestionCategory $questionCategory, $slug)
     {
-        $assessment->load('questions.answers');
+        $questionCategory->load('questions.answers');
 
-        return view('survey.show', compact('assessment'));
+        return view('survey.show', compact('questionCategory'));
     }
 
-    public function store(Assessment $assessment)
+    public function store(QuestionCategory $questionCategory)
     {
         $data = request()->validate([
             'responses.*.answer_id' => 'required',
             'responses.*.question_id' => 'required'
         ]);
 //        dd($data);
-        $survey = $assessment->surveys()->create(['user_id' => auth()->id()]);
+        $survey = $questionCategory->surveys()->create(['user_id' => auth()->id()]);
         $survey->responses()->createMany($data['responses']);
 
-        return redirect('/assessments/' . $assessment->id);
+        return redirect('/questionCategories/' . $questionCategory->id);
     }
 }

@@ -14,8 +14,8 @@ class QuestionBankSeeder extends Seeder
      */
     public function run()
     {
-        // Assessment 1 - State of mind
-        DB::table('assessments')->insert([
+        // QuestionCategory 1 - State of mind
+        DB::table('question_categories')->insert([
             'user_id' => 1,
             'question_type' => 'My state of mind',
             'purpose' => 'These questions are concerning your feelings, emotions and sense of self worth.'
@@ -23,7 +23,7 @@ class QuestionBankSeeder extends Seeder
 
         // Q1
         DB::table('questions')->insert([
-            'assessment_id' => 1,
+            'question_category_id' => 1,
             'question' => 'Are you concerned about how you are feeling at the moment?',
 
         ]);
@@ -40,7 +40,7 @@ class QuestionBankSeeder extends Seeder
 
         // Q2
         DB::table('questions')->insert([
-            'assessment_id' => 1,
+            'question_category_id' => 1,
             'question' => 'Are you concerned about your sense of self worth?',
 
         ]);
@@ -57,7 +57,7 @@ class QuestionBankSeeder extends Seeder
 
         // Q3
         DB::table('questions')->insert([
-            'assessment_id' => 1,
+            'question_category_id' => 1,
             'question' => 'Do you feel valued and worthwhile?',
         ]);
         DB::table('answers')->insert([
@@ -107,7 +107,7 @@ class QuestionBankSeeder extends Seeder
 
         // Q4
         DB::table('questions')->insert([
-            'assessment_id' => 1,
+            'question_category_id' => 1,
             'question' => 'Are you more special than anyone else and in control of everything?',
         ]);
         DB::table('answers')->insert([
@@ -155,8 +155,8 @@ class QuestionBankSeeder extends Seeder
             'answer' => '10',
         ]);
 
-        // Assessment 2 - My involvement with life and others
-        DB::table('assessments')->insert([
+        // QuestionCategory 2 - My involvement with life and others
+        DB::table('question_categories')->insert([
             'user_id' => 1,
             'question_type' => 'My involvement with life and others',
             'purpose' => 'These questions are concerning your motivation, taking part, social world, daily life, drink and drugs.'
@@ -164,7 +164,7 @@ class QuestionBankSeeder extends Seeder
 
         // Q1
         DB::table('questions')->insert([
-            'assessment_id' => 2,
+            'question_category_id' => 2,
             'question' => 'Are you concerned about your motivation in life and how much you engage with other people and activities?',
 
         ]);
@@ -181,7 +181,7 @@ class QuestionBankSeeder extends Seeder
 
         // Q2
         DB::table('questions')->insert([
-            'assessment_id' => 2,
+            'question_category_id' => 2,
             'question' => 'Are you concerned about anything in your social context (relationships, your home, finances, employment, or any changes for the worse)?',
 
         ]);
@@ -198,7 +198,7 @@ class QuestionBankSeeder extends Seeder
 
         // Q3
         DB::table('questions')->insert([
-            'assessment_id' => 2,
+            'question_category_id' => 2,
             'question' => 'Are you concerned about how you are and things you are doing at the moment (eg risk-taking, sleep patterns, daily activities, losing your temper with people)?',
 
         ]);
@@ -215,7 +215,7 @@ class QuestionBankSeeder extends Seeder
 
         // Q4
         DB::table('questions')->insert([
-            'assessment_id' => 2,
+            'question_category_id' => 2,
             'question' => 'Do you have a history of misusing drugs or alcohol?',
 
         ]);
@@ -235,8 +235,8 @@ class QuestionBankSeeder extends Seeder
 
         ]);
 
-        // Assessment 3 - My health and care
-        DB::table('assessments')->insert([
+        // QuestionCategory 3 - My health and care
+        DB::table('question_categories')->insert([
             'user_id' => 1,
             'question_type' => 'My health and care',
             'purpose' => 'These questions are concerning your mental health (history of mental health issues), physical health and care (current treatment for health problems)'
@@ -244,7 +244,7 @@ class QuestionBankSeeder extends Seeder
 
         // Q1
         DB::table('questions')->insert([
-            'assessment_id' => 3,
+            'question_category_id' => 3,
             'question' => 'Do you have any history of depression, mania, hallucinations, or delusions?',
 
         ]);
@@ -266,7 +266,7 @@ class QuestionBankSeeder extends Seeder
 
         // Q2
         DB::table('questions')->insert([
-            'assessment_id' => 3,
+            'question_category_id' => 3,
             'question' => 'Are you concerned about how any physical health problems are affecting you?',
 
         ]);
@@ -283,7 +283,7 @@ class QuestionBankSeeder extends Seeder
 
         // Q3
         DB::table('questions')->insert([
-            'assessment_id' => 3,
+            'question_category_id' => 3,
             'question' => 'Are you having any treatment for health problems?',
 
         ]);
@@ -298,8 +298,8 @@ class QuestionBankSeeder extends Seeder
 
         ]);
 
-        // Assessment 4 - My personality and way of thinking
-        DB::table('assessments')->insert([
+        // QuestionCategory 4 - My personality and way of thinking
+        DB::table('question_categories')->insert([
             'user_id' => 1,
             'question_type' => 'My personality and way of thinking',
             'purpose' => 'These questions are concerning personality issues, thinking/memory (problems with thinking, memory, or concentration) and understanding risk and responsibility (problems with understanding risk and responsibility)'
@@ -307,7 +307,7 @@ class QuestionBankSeeder extends Seeder
 
         // Q1
         DB::table('questions')->insert([
-            'assessment_id' => 4,
+            'question_category_id' => 4,
             'question' => 'Do you think your personality causes difficulties in your life?',
 
         ]);
@@ -324,7 +324,7 @@ class QuestionBankSeeder extends Seeder
 
         // Q2
         DB::table('questions')->insert([
-            'assessment_id' => 4,
+            'question_category_id' => 4,
             'question' => 'Do you have problems with being able to think clearly, remember things, or concentrate?',
 
         ]);
@@ -346,7 +346,7 @@ class QuestionBankSeeder extends Seeder
 
         // Q3
         DB::table('questions')->insert([
-            'assessment_id' => 4,
+            'question_category_id' => 4,
             'question' => 'Do you find it hard to understand why you behave as you do and your impact on other people?',
 
         ]);
@@ -361,8 +361,8 @@ class QuestionBankSeeder extends Seeder
 
         ]);
 
-        // Assessment 5 - My life journey (bad events in my life journey)
-        DB::table('assessments')->insert([
+        // QuestionCategory 5 - My life journey (bad events in my life journey)
+        DB::table('question_categories')->insert([
             'user_id' => 1,
             'question_type' => 'My life journey (bad events in my life journey)',
             'purpose' => 'These questions are concerning the environment you grew up in, school days, easting disorders and traumatic experiences'
@@ -370,7 +370,7 @@ class QuestionBankSeeder extends Seeder
 
         // Q1
         DB::table('questions')->insert([
-            'assessment_id' => 5,
+            'question_category_id' => 5,
             'question' => 'Have bad things happened to you in your life (eg abuse, trouble with the law, serious injury, difficult childhood/education, eating disorders)?',
 
         ]);
@@ -390,8 +390,8 @@ class QuestionBankSeeder extends Seeder
 
         ]);
 
-        // Assessment 6 - Keeping safe
-        DB::table('assessments')->insert([
+        // QuestionCategory 6 - Keeping safe
+        DB::table('question_categories')->insert([
             'user_id' => 1,
             'question_type' => 'Keeping safe',
             'purpose' => 'These questions are concerning vulnerability, self-neglect, self-harm, harming others, damaging property and suicide'
@@ -399,7 +399,7 @@ class QuestionBankSeeder extends Seeder
 
         // Q1
         DB::table('questions')->insert([
-            'assessment_id' => 6,
+            'question_category_id' => 6,
             'question' => 'Are you concerned about your vulnerability?',
 
         ]);
@@ -416,7 +416,7 @@ class QuestionBankSeeder extends Seeder
 
         // Q2
         DB::table('questions')->insert([
-            'assessment_id' => 6,
+            'question_category_id' => 6,
             'question' => 'Are you showing signs of not looking after yourself very well?',
 
         ]);
@@ -438,7 +438,7 @@ class QuestionBankSeeder extends Seeder
 
         // Q3
         DB::table('questions')->insert([
-            'assessment_id' => 6,
+            'question_category_id' => 6,
             'question' => 'Are you concerned about harming yourself?',
 
         ]);
@@ -455,7 +455,7 @@ class QuestionBankSeeder extends Seeder
 
         // Q4
         DB::table('questions')->insert([
-            'assessment_id' => 6,
+            'question_category_id' => 6,
             'question' => 'Are you concerned about causing harm to others or any other destructive behaviour?',
 
         ]);
@@ -472,7 +472,7 @@ class QuestionBankSeeder extends Seeder
 
         // Q5
         DB::table('questions')->insert([
-            'assessment_id' => 6,
+            'question_category_id' => 6,
             'question' => 'Are you concerned about wanting to end your life?',
 
         ]);

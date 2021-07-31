@@ -2,7 +2,7 @@
 
 namespace App\Providers;
 
-use App\Models\Assessment;
+use App\Models\QuestionCategory;
 use App\Models\Availability;
 use App\Models\User;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;

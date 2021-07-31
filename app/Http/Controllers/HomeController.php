@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Assessment;
+use App\Models\QuestionCategory;
 
 class HomeController extends Controller
 {
@@ -23,8 +23,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $assessments = Assessment::all();
+        $questionCategories = QuestionCategory::all();
 
-        return view('home', compact('assessments'));
+        return view('home', compact('questionCategories'));
     }
 }

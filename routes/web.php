@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\AssessmentController;
+use App\Http\Controllers\QuestionCategoryController;
 use App\Http\Controllers\QuestionController;
 use App\Http\Controllers\SurveyController;
 use App\Http\Controllers\AppointmentController;
@@ -36,17 +36,17 @@ Route::middleware('auth')->group(function () {
 
     });
 
-    Route::get('/assessments/create', [AssessmentController::class, 'create']);
-    Route::post('/assessments', [AssessmentController::class, 'store']);
+    Route::get('/questionCategories/create', [QuestionCategoryController::class, 'create']);
+    Route::post('/questionCategories', [QuestionCategoryController::class, 'store']);
 
-    Route::get('/assessments/{assessment}', [AssessmentController::class, 'show']);
+    Route::get('/questionCategories/{questionCategory}', [QuestionCategoryController::class, 'show']);
 
-    Route::get('/assessments/{assessment}/questions/create', [QuestionController::class, 'create']);
-    Route::post('/assessments/{assessment}/questions', [QuestionController::class, 'store']);
-    Route::delete('/assessments/{assessment}/questions/{question}', [QuestionController::class, 'destroy']);
+    Route::get('/questionCategories/{questionCategory}/questions/create', [QuestionController::class, 'create']);
+    Route::post('/questionCategories/{questionCategory}/questions', [QuestionController::class, 'store']);
+    Route::delete('/questionCategories/{questionCategory}/questions/{question}', [QuestionController::class, 'destroy']);
 
-    Route::get('/surveys/{assessment}-{slug}', [SurveyController::class, 'show']);
-    Route::post('/surveys/{assessment}-{slug}', [SurveyController::class, 'store']);
+    Route::get('/surveys/{questionCategory}-{slug}', [SurveyController::class, 'show']);
+    Route::post('/surveys/{questionCategory}-{slug}', [SurveyController::class, 'store']);
 });
 
 Auth::routes();

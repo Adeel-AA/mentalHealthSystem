@@ -3,10 +3,10 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header">{{ __('Create New Assessment') }}</div>
+                    <div class="card-header">{{ __('Create New QuestionCategory') }}</div>
 
                     <div class="card-body">
-                        <form method="POST" action="/assessments">
+                        <form method="POST" action="/questionCategories">
                             @csrf
                             @method('POST')
 
@@ -15,8 +15,7 @@
                                 <input name="question_type" type="text" class="form-control" id="question_type"
                                        aria-describedby="question_type_help"
                                        placeholder="Enter Question Type">
-                                <small id="question_type_help" class="form-text text-muted">Please enter a question type
-                                    such as health...</small>
+                                <small id="question_type_help" class="form-text text-muted">What is the type of question?</small>
 
                                 @error('question_type')
                                 <small class="text-danger">{{ $message }}</small>
@@ -36,7 +35,7 @@
                             <small class="text-danger">{{ $message }}</small>
                             @enderror
 
-                            <button type="submit" class="btn btn-primary">Create Assessment</button>
+                            <button type="submit" class="btn btn-primary">Create Question Category</button>
                         </form>
 
                     </div>

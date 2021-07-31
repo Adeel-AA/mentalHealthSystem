@@ -6,7 +6,7 @@
                     <div class="card-header">{{ __('Create New Question') }}</div>
 
                     <div class="card-body">
-                        <form method="POST" action="/assessments/{{ $assessment->id }}/questions">
+                        <form method="POST" action="/questionCategories/{{ $questionCategory->id }}/questions">
                             @csrf
                             @method('POST')
 
