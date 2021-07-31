@@ -43,7 +43,7 @@
                             </li>
                         @endcan
                         <li class="{{ Request::is('availability') ? 'active font-weight-bold' : '' }} nav-item hover:bg-gray-500 rounded">
-                            <a class="nav-link" href="{{ route('availability') }}">{{ __('Self-Assessment') }}</a>
+                            <a class="nav-link" href="{{ route('availability') }}">{{ __('Self-QuestionCategory') }}</a>
                         </li>
 
                     @endif

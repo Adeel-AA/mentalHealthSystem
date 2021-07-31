@@ -2,18 +2,18 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Assessment;
+use App\Models\QuestionCategory;
 use App\Models\Question;
 use Illuminate\Http\Request;
 
 class QuestionController extends Controller
 {
-    public function create(Assessment $assessment)
+    public function create(QuestionCategory $questionCategory)
     {
-        return view('questions.create', compact('assessment'));
+        return view('questions.create', compact('questionCategory'));
     }
 
-    public function store(Assessment $assessment)
+    public function store(QuestionCategory $questionCategory)
     {
         $data = request()->validate([
             'question.question' => 'required | max:255',
@@ -21,17 +21,17 @@ class QuestionController extends Controller
         ]);
 
 
-        $question = $assessment->questions()->create($data['question']);
+        $question = $questionCategory->questions()->create($data['question']);
         $question->answers()->createMany($data['answers']);
 
-        return redirect('/assessments/' . $assessment->id);
+        return redirect('/questionCategories/' . $questionCategory->id);
     }
 
-    public function destroy(Assessment $assessment, Question $question)
+    public function destroy(QuestionCategory $questionCategory, Question $question)
     {
         $question->answers()->delete();
         $question->delete();
 
-        return redirect($assessment->path());
+        return redirect($questionCategory->path());
     }
 }

@@ -11,9 +11,9 @@ class Survey extends Model
 
     protected $guarded = [];
 
-    public function assessment()
+    public function questionCategories()
     {
-        return $this->belongsTo(Assessment::class);
+        return $this->belongsTo(questionCategory::class);
     }
 
     public function responses()

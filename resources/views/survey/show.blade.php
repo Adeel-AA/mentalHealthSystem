@@ -3,14 +3,14 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header">{{ $assessment->question_type }}</div>
+                    <div class="card-header">{{ $questionCategory->question_type }}</div>
                 </div>
                 <form method="POST"
-                      action="/surveys/{{ $assessment->id }}-{{Str::slug($assessment->question_type)}}">
+                      action="/surveys/{{ $questionCategory->id }}-{{Str::slug($questionCategory->question_type)}}">
                     @csrf
                     @method('POST')
 
-                    @foreach($assessment->questions as $key => $question)
+                    @foreach($questionCategory->questions as $key => $question)
                         <div class="card mt-4">
                             <div class="card-header">{{ $key + 1 }}{{ $question->question }}</div>
 

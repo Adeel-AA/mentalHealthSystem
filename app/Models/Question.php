@@ -11,9 +11,9 @@ class Question extends Model
 
     protected $guarded = [];
 
-    public function assessment()
+    public function questionCategories()
     {
-        return $this->belongsTo(Assessment::class);
+        return $this->belongsTo(QuestionCategory::class);
     }
 
     public function answers()
