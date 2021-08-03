@@ -48,6 +48,7 @@
                     select: function (info) {
                         calendar.addEvent({
                             user_id: {{auth()->user()->id}},
+                            user_name: '{{auth()->user()->name}}',
                             start: info.startStr,
                             end: info.endStr
                         });
@@ -56,6 +57,7 @@
                             url: SITEURL + '/availability',
                             data: {
                                 user_id: {{auth()->user()->id}},
+                                user_name: '{{auth()->user()->name}}',
                                 start: info.startStr,
                                 end: info.endStr
                             },

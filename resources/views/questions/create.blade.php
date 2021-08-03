@@ -6,7 +6,7 @@
                     <div class="card-header">{{ __('Create New Question') }}</div>
 
                     <div class="card-body">
-                        <form method="POST" action="/questionCategories/{{ $questionCategory->id }}/questions">
+                        <form method="POST" action="/question-categories/{{ $questionCategory->id }}/questions">
                             @csrf
                             @method('POST')
 
@@ -106,6 +106,7 @@
                             @enderror
 
                             <button type="submit" class="btn btn-primary">Add Question</button>
+                            <button class="btn btn-secondary">Add Input</button>
                         </form>
 
                     </div>

@@ -24,6 +24,6 @@ class SurveyController extends Controller
         $survey = $questionCategory->surveys()->create(['user_id' => auth()->id()]);
         $survey->responses()->createMany($data['responses']);
 
-        return redirect('/questionCategories/' . $questionCategory->id);
+        return redirect('/question-categories/' . $questionCategory->id);
     }
 }

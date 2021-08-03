@@ -24,7 +24,7 @@ class QuestionController extends Controller
         $question = $questionCategory->questions()->create($data['question']);
         $question->answers()->createMany($data['answers']);
 
-        return redirect('/questionCategories/' . $questionCategory->id);
+        return redirect('/question-categories/' . $questionCategory->id);
     }
 
     public function destroy(QuestionCategory $questionCategory, Question $question)
