@@ -4,15 +4,11 @@ module.exports = {
     theme: {
         extend: {},
         colors: {
-            gray: colors.coolGray,
-            blue: colors.lightBlue,
-            red: colors.rose,
-            pink: colors.fuchsia,
+            blue: {
+                DEFAULT: '#1A759F',
+            },
         },
-        fontFamily: {
-            sans: ['Graphik', 'sans-serif'],
-            serif: ['Merriweather', 'serif'],
-        },
+
     },
     variants: {
         extend: {},

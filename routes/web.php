@@ -1,10 +1,11 @@
 <?php
 
-use App\Http\Controllers\QuestionCategoryController;
-use App\Http\Controllers\QuestionController;
-use App\Http\Controllers\SurveyController;
 use App\Http\Controllers\AppointmentController;
 use App\Http\Controllers\AvailabilityController;
+use App\Http\Controllers\QuestionCategoryController;
+use App\Http\Controllers\QuestionController;
+use App\Http\Controllers\SelfAssessmentController;
+use App\Http\Controllers\SurveyController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,15 +18,17 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Auth::routes();
 
 Route::get('/', function () {
     return view('welcome');
 });
 
 Route::middleware('auth')->group(function () {
+    Route::get('/self-assessments', [SelfAssessmentController::class, 'index'])->name('self-assessments');
+    Route::get('/self-assessments/show', [SelfAssessmentController::class, 'show']);
 
-
-    Route::get('/appointments', [AppointmentController::class, 'show']);
+    Route::get('/appointments', [AppointmentController::class, 'show'])->name('appointments');
 
     Route::middleware('can:create-availability,availability')->group(function () {
 
@@ -36,19 +39,18 @@ Route::middleware('auth')->group(function () {
 
     });
 
-    Route::get('/questionCategories/create', [QuestionCategoryController::class, 'create']);
-    Route::post('/questionCategories', [QuestionCategoryController::class, 'store']);
+    Route::get('/question-categories/create', [QuestionCategoryController::class, 'create']);
+    Route::get('/question-categories', [QuestionCategoryController::class, 'index']);
+    Route::post('/question-categories', [QuestionCategoryController::class, 'store']);
 
-    Route::get('/questionCategories/{questionCategory}', [QuestionCategoryController::class, 'show']);
-
-    Route::get('/questionCategories/{questionCategory}/questions/create', [QuestionController::class, 'create']);
-    Route::post('/questionCategories/{questionCategory}/questions', [QuestionController::class, 'store']);
-    Route::delete('/questionCategories/{questionCategory}/questions/{question}', [QuestionController::class, 'destroy']);
+    Route::get('/question-categories/{questionCategory}', [QuestionCategoryController::class, 'show']);
+    Route::get('/question-categories/{questionCategory}/questions/create', [QuestionController::class, 'create']);
+    Route::post('/question-categories/{questionCategory}/questions', [QuestionController::class, 'store']);
+    Route::delete('/question-categories/{questionCategory}/questions/{question}', [QuestionController::class, 'destroy']);
 
     Route::get('/surveys/{questionCategory}-{slug}', [SurveyController::class, 'show']);
     Route::post('/surveys/{questionCategory}-{slug}', [SurveyController::class, 'store']);
+    Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 });
 
-Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

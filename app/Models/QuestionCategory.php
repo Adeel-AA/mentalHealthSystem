@@ -13,7 +13,7 @@ class QuestionCategory extends Model
 
     public function path()
     {
-        return url('/questionCategories/' . $this->id);
+        return url('/question-categories/' . $this->id);
     }
 
     public function user()

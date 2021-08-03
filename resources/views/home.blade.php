@@ -3,37 +3,33 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
+
                     <div class="card-header">Home Page</div>
 
-                    <div class="card-body">
-
-                        <a href="/questionCategories/create" class="btn btn-dark">Create New Question Category</a>
-
-                        <a href="/questionCategories/create" class="btn btn-dark">Start Question Category</a>
-                        @if (session('status'))
-                            <div class="alert alert-success" role="alert">
-                                {{ session('status') }}
-                            </div>
-                        @endif
-
-                        <div class="card-body">
-                            <ul class="list-group">
-                                @foreach($questionCategories as $questionCategory)
-                                    <li class="list-group-item">
-                                        <a href="{{ $questionCategory->path() }}">{{ $questionCategory->question_type }}</a>
-
-                                        <small id="purpose" class="form-text text-muted">{{ $questionCategory->purpose }}</small>
-
-                                    </li>
-                                @endforeach
-                            </ul>
+                    <div class="card-body container-fluid">
+                        <div class="h2">
+                            <p>Hello {{ auth()->user()->name }}, what would you like to do today?</p>
                         </div>
+                        <br>
+                        <div class="">
+
+                            <div class="btn btn-dark btn-lg">
+                                <a href="/question-categories/create">Start New Assessment</a>
+                            </div>
+                            <div class="btn btn-dark btn-lg">
+                                <a href="/self-assessments/show">View My Assessments</a>
+                            </div>
+
+                        </div>
+
+
                     </div>
                 </div>
-
-
             </div>
+
+
         </div>
+    </div>
     </div>
 
 

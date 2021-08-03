@@ -7,9 +7,15 @@ use Illuminate\Http\Request;
 
 class QuestionCategoryController extends Controller
 {
+    public function index(QuestionCategory $questionCategory)
+    {
+
+        return view('question-categories.index', compact('questionCategory'));
+    }
+
     public function create()
     {
-        return view('questionCategories.create');
+        return view('question-categories.create');
     }
 
     public function store()
@@ -21,7 +27,7 @@ class QuestionCategoryController extends Controller
 
         $questionCategory = auth()->user()->questionCategories()->create($data);
 
-        return redirect('/questionCategories/' . $questionCategory->id);
+        return redirect('/question-categories/' . $questionCategory->id);
     }
 
     public function show(QuestionCategory $questionCategory)
@@ -29,6 +35,6 @@ class QuestionCategoryController extends Controller
         //Lazy load questions and answers
         $questionCategory->load('questions.answers.responses');
 
-        return view('questionCategories.show', compact('questionCategory'));
+        return view('question-categories.show', compact('questionCategory'));
     }
 }

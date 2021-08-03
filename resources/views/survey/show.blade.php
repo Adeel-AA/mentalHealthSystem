@@ -1,9 +1,10 @@
 <x-app>
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-md-8">
+            <div class="col-md-6">
                 <div class="card">
                     <div class="card-header">{{ $questionCategory->question_type }}</div>
+                    <div class="card-body">{{ $questionCategory->purpose }}</div>
                 </div>
                 <form method="POST"
                       action="/surveys/{{ $questionCategory->id }}-{{Str::slug($questionCategory->question_type)}}">
@@ -12,7 +13,7 @@
 
                     @foreach($questionCategory->questions as $key => $question)
                         <div class="card mt-4">
-                            <div class="card-header">{{ $key + 1 }}{{ $question->question }}</div>
+                            <div class="card-header">{{ $key + 1 }}. {{ $question->question }}</div>
 
                             <div class="card-body">
 
@@ -39,8 +40,8 @@
                             </div>
                         </div>
                     @endforeach
-
-                    <button class="btn btn-dark" type="submit">Complete Survey</button>
+                    <br>
+                    <button class="btn btn-lg btn-dark" type="submit">Complete Survey</button>
                 </form>
 
                 {{--                <div class="card">--}}

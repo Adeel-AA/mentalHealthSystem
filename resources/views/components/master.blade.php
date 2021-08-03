@@ -11,7 +11,7 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
-    <script src="http://unpkg.com/turbolinks"></script>
+{{--    <script src="http://unpkg.com/turbolinks"></script>--}}
 
 
     <!-- Fonts -->
@@ -32,23 +32,26 @@
             <div class="container">
 
                 <!-- Left Side Of Navbar -->
-                <ul class="navbar-nav mr-auto inline-flex">
+                <ul class="navbar-nav">
                     @if(auth()->check())
                         <li class="{{ Request::is('home') ? 'active font-weight-bold' : '' }} nav-item hover:bg-gray-500 rounded">
-                            <a class="nav-link" href="{{ route('home') }}">{{ __('Home') }}</a>
+                            <a class="nav-link" href="{{ route('home') }}">Home</a>
+                        </li>
+                        <li class="{{ Request::is('self-assessments*') || Request::is('question-categories*') || Request::is('surveys*')? 'active font-weight-bold' : '' }} nav-item hover:bg-gray-500 rounded">
+                            <a class="nav-link" href="{{ route('self-assessments') }}">Self-Assessment</a>
                         </li>
                         @can('create-availability')
-                            <li class="{{ Request::is('availability') ? 'active font-weight-bold' : '' }} nav-item hover:bg-gray-500 rounded">
-                                <a class="nav-link" href="{{ route('availability') }}">{{ __('Availability') }}</a>
-                            </li>
                         @endcan
                         <li class="{{ Request::is('availability') ? 'active font-weight-bold' : '' }} nav-item hover:bg-gray-500 rounded">
-                            <a class="nav-link" href="{{ route('availability') }}">{{ __('Self-QuestionCategory') }}</a>
+                            <a class="nav-link" href="{{ route('availability') }}">Availability</a>
+                        </li>
+                        <li class="{{ Request::is('appointments') ? 'active font-weight-bold' : '' }} nav-item hover:bg-gray-500 rounded">
+                            <a class="nav-link" href="{{ route('appointments') }}">Appointments</a>
                         </li>
 
                     @endif
                 </ul>
-                <header class="navbar-brand container justify-content-center">
+                <header class="navbar-brand">
                     {{ config('app.name', 'Mental Health System') }}
                 </header>
 

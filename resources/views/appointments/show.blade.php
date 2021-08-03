@@ -27,13 +27,13 @@
 
                 var calendar = new FullCalendar.Calendar(calendarEl, {
 
+                    timeZone: 'Europe/London',
                     events: SITEURL + '/availability/json',
 
-                    selectable: true,
-                    editable: true,
+                    selectable: false,
+                    // editable: true,
                     businessHours: true,
                     displayEventTime: true,
-                    selectMinDistance: 1,
 
                     initialView: 'dayGridMonth',
                     headerToolbar: {
@@ -41,6 +41,18 @@
                         center: 'title',
                         right: 'dayGridMonth,timeGridWeek,timeGridDay'
                     },
+
+                    eventDidMount: function (info) {
+                        $(info.el).tooltip({
+                            title: 'This appointment is with: ' + info.event.extendedProps.user_name,
+                            placement: 'top',
+                            trigger: 'hover',
+                            container: 'body'
+
+                        });
+
+                    },
+
                     dateClick: function (info) {
                         calendar.changeView('timeGridDay', info.dateStr);
                     },
@@ -59,13 +71,31 @@
                                 end: info.endStr
                             },
                             type: 'POST',
-                            success: function (data) {
+                            success: function () {
                                 alert('Your availability has been successfully ');
                             }
 
                         })
-                        // calendar.getEventSources();
-                        // calendar.refetchEvents()
+                    },
+                    eventClick: function (info) {
+                        var eventDelete = confirm("Do you want to remove this?");
+                        var eventObj = info.event;
+
+                        if (eventDelete) {
+                            $.ajax({
+                                url: SITEURL + '/availability',
+                                data: {
+                                    id: eventObj.id
+                                },
+                                type: 'DELETE',
+                                success: function (data) {
+                                    eventObj.remove();
+                                    alert('Availability sucessfully deleted');
+                                }
+
+                            })
+                        }
+
                     }
                 });
 

@@ -26,6 +26,7 @@ class AvailabilityController extends Controller
 
         $availability = Availability::create([
             'user_id' => $request->user_id,
+            'user_name' => $request->user_name,
             'start' => $request->start,
             'end' => $request->end
         ]);
@@ -43,7 +44,7 @@ class AvailabilityController extends Controller
 
     public function jsonFeed()
     {
-        $data = ['id', 'user_id', 'start', 'end'];
+        $data = ['id', 'user_id', 'user_name', 'start', 'end'];
 
         $events = Availability::get($data);
 

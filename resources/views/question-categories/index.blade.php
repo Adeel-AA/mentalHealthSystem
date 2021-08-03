@@ -1,18 +1,24 @@
 <x-app>
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-md-6">
+            <div class="col-md-8">
                 <div class="card">
+                    <div class="card-header">Question Category</div>
+                    <div class="card-body container-fluid">
 
-                    <div class="card-body">
-                        <a class="btn btn-dark" href="/questionCategories/{{ $questionCategory->id }}/questions/create">Add New
+                        <a class="btn btn-dark" href="/questionCategories/{{ $questionCategory->id }}/questions/create">Add
+                            New
                             Question</a>
                         <a class="btn btn-dark"
                            href="/surveys/{{ $questionCategory->id}}-{{ Str::slug($questionCategory->question_type) }}">Take
                             questionCategory</a>
 
                         <h1 class="card-header">{{ $questionCategory->question_type }}</h1>
-                        <small id="purpose" class="form-text text-muted">{{ $questionCategory->purpose }}</small>
+                        <div class="card-body">
+
+                            <small id="purpose" class="form-text text-muted">{{ $questionCategory->purpose }}</small>
+
+                        </div>
 
                     </div>
                 </div>
