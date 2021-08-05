@@ -1,59 +1,40 @@
 <x-app>
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-md-8">
+            <div class="col-md-6">
                 <div class="card">
-                    <div class="card-header">Question Category</div>
+                    <div class="card-header bg-blue">Question Categories</div>
+
                     <div class="card-body container-fluid">
 
-                        <a class="btn btn-dark" href="/questionCategories/{{ $questionCategory->id }}/questions/create">Add
-                            New
-                            Question</a>
-                        <a class="btn btn-dark"
-                           href="/surveys/{{ $questionCategory->id}}-{{ Str::slug($questionCategory->question_type) }}">Take
-                            questionCategory</a>
-
-                        <h1 class="card-header">{{ $questionCategory->question_type }}</h1>
-                        <div class="card-body">
-
-                            <small id="purpose" class="form-text text-muted">{{ $questionCategory->purpose }}</small>
-
+                        <div class="h5 text-center">
+                            <p>Please select a category which you'd like to add questions to</p>
                         </div>
+                        <div class="card-body">
+                            <ul class="list-group">
+                                @foreach($questionCategories as $questionCategory)
+                                    <li class="list-group-item border {{$loop->last ? '' : 'mb-4'}} p-4">
+                                        <a class="stretched-link"
+                                           href="{{ $questionCategory->path() }}">{{ $questionCategory->question_type }}</a>
+                                        <small id="purpose"
+                                               class="form-text text-muted">{{ $questionCategory->purpose }}</small>
+                                    </li>
+                                @endforeach
+                                {{--                                    <div class="btn btn-dark btn-lg">--}}
+                                {{--                                        <a href="/surveys/{{ $questionCategory->id}}-{{ Str::slug($questionCategory->question_type) }}">Start--}}
+                                {{--                                            Self-Assessment</a>--}}
+                                {{--                                    </div>--}}
+                            </ul>
+                        </div>
+
 
                     </div>
                 </div>
 
-                @foreach($questionCategory->questions as $question)
-                    <div class="card mt-4">
-                        <div class="card-header">{{ $question->question }}</div>
-                        <div class="card-body">
-                            <ul class="list-group">
-                                @foreach($question->answers as $answer)
-                                    <li class="list-group-item d-flex justify-content-between">
-                                        <div>{{ $answer->answer }}</div>
-                                        @if($question->responses->count())
-                                            <div>{{ intval(($answer->responses->count() * 100) / $question->responses->count()) }}
-                                                %
-                                            </div>
-                                        @endif
-
-                                    </li>
-                                @endforeach
-                            </ul>
-                        </div>
-                        <div class="card-footer">
-                            <form method="POST"
-                                  action="/questionCategories/{{ $questionCategory->id }}/questions/{{ $question->id }}">
-                                @method('DELETE')
-                                @csrf
-
-                                <button type="submit" class="btn btn-sm btn-outline-danger">Delete Question</button>
-                            </form>
-                        </div>
-
-                    </div>
-                @endforeach
+                <br>
             </div>
         </div>
     </div>
+
+
 </x-app>

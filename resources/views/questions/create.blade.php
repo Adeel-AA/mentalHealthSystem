@@ -106,7 +106,7 @@
                             @enderror
 
                             <button type="submit" class="btn btn-primary">Add Question</button>
-                            <button class="btn btn-secondary">Add Input</button>
+                            <button class="btn btn-secondary float-right" type="reset">Clear Form</button>
                         </form>
 
                     </div>

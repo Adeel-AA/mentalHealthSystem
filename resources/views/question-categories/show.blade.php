@@ -3,6 +3,7 @@
         <div class="row justify-content-center">
             <div class="col-md-6">
                 <div class="card">
+                    <div class="card-header">Questions</div>
                     <div class="card-body container-fluid">
 
                         <div class="btn btn-dark btn-lg">
@@ -10,10 +11,7 @@
                                 Question</a>
 
                         </div>
-                        <div class="btn btn-dark btn-lg">
-                            <a href="/surveys/{{ $questionCategory->id}}-{{ Str::slug($questionCategory->question_type) }}">Start
-                                Self-Assessment</a>
-                        </div>
+
 
                         <div class="card mt-4">
                             <h1 class="card-header">Question Type: {{ $questionCategory->question_type }}</h1>
@@ -51,12 +49,13 @@
                                 @method('DELETE')
                                 @csrf
 
-                                <button type="submit" class="btn btn-sm btn-outline-danger">Delete Question</button>
+                                <button type="submit" class="btn btn-sm btn-outline-danger float-right">Delete Question</button>
                             </form>
                         </div>
 
                     </div>
                 @endforeach
+                <br>
             </div>
         </div>
     </div>

@@ -7,10 +7,10 @@ use Illuminate\Http\Request;
 
 class QuestionCategoryController extends Controller
 {
-    public function index(QuestionCategory $questionCategory)
+    public function index()
     {
-
-        return view('question-categories.index', compact('questionCategory'));
+        $questionCategories = QuestionCategory::all();
+        return view('question-categories.index', compact('questionCategories'));
     }
 
     public function create()

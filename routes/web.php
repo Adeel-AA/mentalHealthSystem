@@ -26,7 +26,7 @@ Route::get('/', function () {
 
 Route::middleware('auth')->group(function () {
     Route::get('/self-assessments', [SelfAssessmentController::class, 'index'])->name('self-assessments');
-    Route::get('/self-assessments/show', [SelfAssessmentController::class, 'show']);
+    Route::get('/self-assessments/show', [SelfAssessmentController::class, 'show'])->name('my-self-assessments');
 
     Route::get('/appointments', [AppointmentController::class, 'show'])->name('appointments');
 
@@ -39,8 +39,9 @@ Route::middleware('auth')->group(function () {
 
     });
 
-    Route::get('/question-categories/create', [QuestionCategoryController::class, 'create']);
-    Route::get('/question-categories', [QuestionCategoryController::class, 'index']);
+    Route::get('/question-categories/create', [QuestionCategoryController::class, 'create'])->name('create-question-category');
+    Route::get('/question-categories', [QuestionCategoryController::class, 'index'])->name('view-question-categories');
+
     Route::post('/question-categories', [QuestionCategoryController::class, 'store']);
 
     Route::get('/question-categories/{questionCategory}', [QuestionCategoryController::class, 'show']);
@@ -48,8 +49,8 @@ Route::middleware('auth')->group(function () {
     Route::post('/question-categories/{questionCategory}/questions', [QuestionController::class, 'store']);
     Route::delete('/question-categories/{questionCategory}/questions/{question}', [QuestionController::class, 'destroy']);
 
-    Route::get('/surveys/{questionCategory}-{slug}', [SurveyController::class, 'show']);
-    Route::post('/surveys/{questionCategory}-{slug}', [SurveyController::class, 'store']);
+    Route::get('/surveys/{questionCategory}', [SurveyController::class, 'show'])->name('view-survey');
+    Route::post('/surveys/{questionCategory}', [SurveyController::class, 'store'])->name('store-survey');
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 });
 

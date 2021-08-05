@@ -1,33 +1,45 @@
 <x-app>
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-md-8">
+            <div class="col-md-6">
                 <div class="card">
-                    <div class="card-header">Self-Assessments</div>
-
+                    <div class="card-header">My Assessments</div>
                     <div class="card-body container-fluid">
-                        <div class="h3">
-                            <p>Choose which area you'd like to focus on</p>
+                        <div class="h5 text-center">
+                            <p>Please select one of your previous assessments to view</p>
                         </div>
-                    </div>
+                        <br>
 
-                    <div class="card-body">
                         <ul class="list-group">
-                            @foreach($questionCategories as $questionCategory)
-                                <li class="list-group-item p-4">
-                                    <a href="{{ $questionCategory->path() }}">{{ $questionCategory->question_type }}</a>
-                                    <small id="purpose"
-                                           class="form-text text-muted">{{ $questionCategory->purpose }}</small>
+                            @foreach($responses as $response)
+                                <li class="list-group-item border {{$loop->last ? '' : 'mb-4'}} p-4">
+                                    <a class="stretched-link"
+                                       href="">Assessment Submitted: {{ $response->created_at }}</a>
+                                    @foreach($questionCategories as $questionCategory)
+                                        @if($questionCategory->id === $response->question_category_id)
+                                            <small id="question_type"
+                                                   class="form-text text-muted">Question
+                                                Type: {{$questionCategory->question_type}} </small>
+                                            <small id="question_purpose"
+                                                   class="form-text text-muted">Question
+                                                Purpose: {{$questionCategory->purpose}} </small>
+                                        @endif
+                                    @endforeach
+
                                 </li>
                             @endforeach
+                            {{--                                    <div class="btn btn-dark btn-lg">--}}
+                            {{--                                        <a href="/surveys/{{ $questionCategory->id}}-{{ Str::slug($questionCategory->question_type) }}">Start--}}
+                            {{--                                            Self-Assessment</a>--}}
+                            {{--                                    </div>--}}
                         </ul>
                     </div>
+
                 </div>
+
+
+                <br>
             </div>
-
-
         </div>
     </div>
-
-
 </x-app>
