@@ -14,7 +14,7 @@
 {{--    <script src="http://unpkg.com/turbolinks"></script>--}}
 
 
-    <!-- Fonts -->
+<!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
@@ -34,18 +34,53 @@
                 <!-- Left Side Of Navbar -->
                 <ul class="navbar-nav">
                     @if(auth()->check())
-                        <li class="{{ Request::is('home') ? 'active font-weight-bold' : '' }} nav-item hover:bg-gray-500 rounded">
+                        <li class="nav-item {{ Request::is('home') ? 'active font-weight-bold' : '' }}">
                             <a class="nav-link" href="{{ route('home') }}">Home</a>
                         </li>
-                        <li class="{{ Request::is('self-assessments*') || Request::is('question-categories*') || Request::is('surveys*')? 'active font-weight-bold' : '' }} nav-item hover:bg-gray-500 rounded">
-                            <a class="nav-link" href="{{ route('self-assessments') }}">Self-Assessment</a>
+
+                        <li class="nav-item dropdown {{ Request::is('self-assessments*') || Request::is('surveys*') ? 'active font-weight-bold' : '' }}">
+                            <a id="navbarDropdown" class="nav-link dropdown-toggle" role="button"
+                               data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                Self-Assessment
+                            </a>
+
+                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="{{ route('self-assessments') }}">
+                                    Begin Self-Assessment
+                                </a>
+                                <a class="dropdown-item" href="{{ route('my-self-assessments') }}">
+                                    View My Assessments
+                                </a>
+                            </div>
+
+
                         </li>
+
+                        <li class="nav-item dropdown {{ Request::is('question-categories*') ? 'active font-weight-bold' : '' }}">
+                            <a id="navbarDropdown" class="nav-link dropdown-toggle" role="button"
+                               data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                Questions
+                            </a>
+
+                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="{{ route('create-question-category') }}">
+                                    Create New Category
+                                </a>
+                                <a class="dropdown-item" href="{{ route('view-question-categories') }}">
+                                    View Question Categories
+                                </a>
+                            </div>
+
+
+                        </li>
+
                         @can('create-availability')
                         @endcan
-                        <li class="{{ Request::is('availability') ? 'active font-weight-bold' : '' }} nav-item hover:bg-gray-500 rounded">
+
+                        <li class="{{ Request::is('availability') ? 'active font-weight-bold' : '' }} nav-item ">
                             <a class="nav-link" href="{{ route('availability') }}">Availability</a>
                         </li>
-                        <li class="{{ Request::is('appointments') ? 'active font-weight-bold' : '' }} nav-item hover:bg-gray-500 rounded">
+                        <li class="{{ Request::is('appointments') ? 'active font-weight-bold' : '' }} nav-item ">
                             <a class="nav-link" href="{{ route('appointments') }}">Appointments</a>
                         </li>
 

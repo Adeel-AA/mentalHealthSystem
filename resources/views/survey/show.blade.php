@@ -7,7 +7,7 @@
                     <div class="card-body">{{ $questionCategory->purpose }}</div>
                 </div>
                 <form method="POST"
-                      action="/surveys/{{ $questionCategory->id }}-{{Str::slug($questionCategory->question_type)}}">
+                      action="/surveys/{{ $questionCategory->id }}">
                     @csrf
                     @method('POST')
 
@@ -41,45 +41,11 @@
                         </div>
                     @endforeach
                     <br>
-                    <button class="btn btn-lg btn-dark" type="submit">Complete Survey</button>
+                    <button class="btn btn-primary" type="submit">Complete Survey</button>
+                    <button class="btn btn-secondary float-right" type="reset">Clear Form</button>
                 </form>
 
-                {{--                <div class="card">--}}
-                {{--                    <div class="card-header">Personal Details</div>--}}
-                {{--                    <div class="card-body">--}}
-
-
-                {{--                        <div class="form-group">--}}
-                {{--                            <label for="question_type">Question Type</label>--}}
-                {{--                            <input name="question_type" type="text" class="form-control" id="question_type"--}}
-                {{--                                   aria-describedby="question_type_help"--}}
-                {{--                                   placeholder="Enter Question Type">--}}
-                {{--                            <small id="question_type_help" class="form-text text-muted">Please enter a question type--}}
-                {{--                                such as health...</small>--}}
-
-                {{--                            @error('question_type')--}}
-                {{--                            <small class="text-danger">{{ $message }}</small>--}}
-                {{--                            @enderror--}}
-                {{--                        </div>--}}
-
-                {{--                        <div class="form-group">--}}
-                {{--                            <label for="purpose">Purpose</label>--}}
-                {{--                            <input name="purpose" type="text" class="form-control" id="purpose"--}}
-                {{--                                   aria-describedby="purpose_help"--}}
-                {{--                                   placeholder="Enter Purpose">--}}
-                {{--                            <small id="purpose_help" class="form-text text-muted">What is the purpose of this--}}
-                {{--                                question?</small>--}}
-                {{--                        </div>--}}
-
-                {{--                        @error('purpose')--}}
-                {{--                        <small class="text-danger">{{ $message }}</small>--}}
-                {{--                        @enderror--}}
-
-                {{--                       --}}
-
-                {{--                    </div>--}}
-                {{--                </div>--}}
-
+           <br>
             </div>
         </div>
     </div>

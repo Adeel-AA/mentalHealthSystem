@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 
 class SurveyController extends Controller
 {
-    public function show(QuestionCategory $questionCategory, $slug)
+    public function show(QuestionCategory $questionCategory)
     {
         $questionCategory->load('questions.answers');
 

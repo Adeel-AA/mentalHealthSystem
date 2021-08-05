@@ -1,7 +1,7 @@
 <x-app>
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-md-8">
+            <div class="col-md-6">
                 <div class="card">
                     <div class="card-header">{{ __('Add New Question Category') }}</div>
 
@@ -36,6 +36,7 @@
                             @enderror
 
                             <button type="submit" class="btn btn-primary">Create Question Category</button>
+                            <button class="btn btn-secondary float-right" type="reset">Clear Form</button>
                         </form>
 
                     </div>
