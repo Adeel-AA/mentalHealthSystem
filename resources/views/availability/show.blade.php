@@ -79,7 +79,7 @@
                                     id: eventObj.id
                                 },
                                 type: 'DELETE',
-                                success: function (data) {
+                                success: function () {
                                     eventObj.remove();
                                     alert('Availability sucessfully deleted');
                                 }
@@ -99,18 +99,22 @@
     </head>
 
     <div class="container">
-        <div class="">
-            <div class="">
-                <div class="card">
+        <div class="justify-content-center">
+            <div class="card">
+                <div class="card-header">Availability</div>
 
-                    <div class="card-body">
-                        <div id='calendar'></div>
+                <div class="card-body container-fluid">
+                    <div class="h5 text-center">
+                        <p>Please select a day where you want to set availability</p>
+                        <p>You can drag along the times to set availability</p>
                     </div>
+                    <br>
+                    <div id='calendar'></div>
                 </div>
+
             </div>
         </div>
     </div>
-
 
     </html>
 </x-app>

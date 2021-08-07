@@ -56,41 +56,38 @@
                     dateClick: function (info) {
                         calendar.changeView('timeGridDay', info.dateStr);
                     },
-                    select: function (info) {
-                        calendar.addEvent({
-                            user_id: {{auth()->user()->id}},
-                            start: info.startStr,
-                            end: info.endStr
-                        });
 
-                        $.ajax({
-                            url: SITEURL + '/availability',
-                            data: {
-                                user_id: {{auth()->user()->id}},
-                                start: info.startStr,
-                                end: info.endStr
-                            },
-                            type: 'POST',
-                            success: function () {
-                                alert('Your availability has been successfully ');
-                            }
-
-                        })
-                    },
                     eventClick: function (info) {
-                        var eventDelete = confirm("Do you want to remove this?");
+                        var eventBook = confirm("Do you want to book this appointment with " + info.event.extendedProps.user_name + "?");
                         var eventObj = info.event;
 
-                        if (eventDelete) {
+                        if (eventBook) {
+                            var comment = prompt("Please add any comments for this appointment (optional)");
                             $.ajax({
-                                url: SITEURL + '/availability',
+                                url: SITEURL + '/appointments',
                                 data: {
-                                    id: eventObj.id
+                                    user_id: {{auth()->user()->id}},
+                                    counsellor_id: eventObj.id,
+                                    user_name: eventObj.extendedProps.user_name,
+                                    start: eventObj.startStr,
+                                    end: eventObj.endStr,
+                                    comments: comment
                                 },
-                                type: 'DELETE',
-                                success: function (data) {
+                                type: 'POST',
+                                success: function () {
+                                    $.ajax({
+                                        url: SITEURL + '/availability',
+                                        data: {
+                                            id: eventObj.id
+                                        },
+                                        type: 'DELETE',
+                                        success: function () {
+                                            eventObj.remove();
+                                        }
+
+                                    })
                                     eventObj.remove();
-                                    alert('Availability sucessfully deleted');
+                                    alert('Your appointment has been successfully booked');
                                 }
 
                             })
@@ -108,14 +105,19 @@
     </head>
 
     <div class="container">
-        <div class="">
-            <div class="">
-                <div class="card">
+        <div class="justify-content-center">
+            <div class="card">
+                <div class="card-header">Appointments</div>
 
-                    <div class="card-body">
-                        <div id='calendar'></div>
+                <div class="card-body container-fluid">
+                    <div class="h5 text-center">
+                        <p>Your appointments are below</p>
+
                     </div>
+                    <br>
+                    <div id='calendar'></div>
                 </div>
+
             </div>
         </div>
     </div>

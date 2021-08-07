@@ -29,6 +29,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/self-assessments/show', [SelfAssessmentController::class, 'show'])->name('my-self-assessments');
 
     Route::get('/appointments', [AppointmentController::class, 'show'])->name('appointments');
+    Route::post('/appointments', [AppointmentController::class, 'store']);
 
     Route::middleware('can:create-availability,availability')->group(function () {
 

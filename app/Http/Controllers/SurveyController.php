@@ -18,10 +18,11 @@ class SurveyController extends Controller
     {
         $data = request()->validate([
             'responses.*.answer_id' => 'required',
-            'responses.*.question_id' => 'required'
+            'responses.*.question_id' => 'required',
+            'notes' => 'max:600'
         ]);
 //        dd($data);
-        $survey = $questionCategory->surveys()->create(['user_id' => auth()->id()]);
+        $survey = $questionCategory->surveys()->create(['user_id' => auth()->id(), 'notes' => $data['notes']]);
         $survey->responses()->createMany($data['responses']);
 
         return redirect('/question-categories/' . $questionCategory->id);

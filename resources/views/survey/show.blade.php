@@ -37,15 +37,31 @@
                                         </label>
                                     @endforeach
                                 </ul>
+
                             </div>
                         </div>
+                        @if($loop->last)
+                            <div class="card mt-4">
+                                <div class="card-header">Notes - Please add any notes (optional)</div>
+                                <div class="card-body">
+
+                                    @error('notes')
+                                    <small class="text-danger">{{ $message }}</small>
+                                    @enderror
+
+                                    <textarea class="border w-75" id="notes" name="notes"></textarea>
+
+                                </div>
+                            </div>
+
+                        @endif
                     @endforeach
                     <br>
                     <button class="btn btn-primary" type="submit">Complete Survey</button>
                     <button class="btn btn-secondary float-right" type="reset">Clear Form</button>
                 </form>
 
-           <br>
+                <br>
             </div>
         </div>
     </div>
