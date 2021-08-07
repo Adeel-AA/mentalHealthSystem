@@ -3,15 +3,15 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header bg-blue">Self-Assessments</div>
+                    <div class="card-header">Self-Assessments</div>
 
                     <div class="card-body container-fluid">
 
-                        <div class="h3">
+                        <div class="h3 text-center">
                             <p>Choose which area you'd like to focus on...</p>
 
                         </div>
-                        <div class="h4">
+                        <div class="h4 text-center">
                             <p>To begin an assessment please select...</p>
                         </div>
                         <div class="card-body">

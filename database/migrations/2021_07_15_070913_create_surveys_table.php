@@ -17,6 +17,7 @@ class CreateSurveysTable extends Migration
             $table->id();
             $table->foreignId('question_category_id');
             $table->foreignId('user_id');
+            $table->string('notes')->nullable();
             $table->timestamps();
         });
     }

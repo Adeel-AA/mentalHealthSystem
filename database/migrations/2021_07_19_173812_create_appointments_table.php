@@ -17,9 +17,9 @@ class CreateAppointmentsTable extends Migration
             $table->id();
             $table->foreignId('user_id');
             $table->foreignId('counsellor_id');
-            $table->string('name')->nullable();
-            $table->dateTime('start_time');
-            $table->dateTime('end_time');
+            $table->string('user_name')->nullable();
+            $table->dateTime('start');
+            $table->dateTime('end');
             $table->string('comments')->nullable();
             $table->timestamps();
 

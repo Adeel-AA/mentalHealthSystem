@@ -25,6 +25,10 @@
                                                 Purpose: {{$questionCategory->purpose}} </small>
                                         @endif
                                     @endforeach
+                                    @if($response->notes)
+                                        <small id="question_type"
+                                               class="form-text text-muted">Notes: {{$response->notes}} </small>
+                                    @endif
 
                                 </li>
                             @endforeach

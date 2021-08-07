@@ -16,12 +16,9 @@ class SelfAssessmentController extends Controller
 
     public function show()
     {
-
         $responses = Survey::where('user_id', auth()->user()->id)->get();
 
-
-
-            $questionCategories = QuestionCategory::all();
+        $questionCategories = QuestionCategory::all();
 
         return view('self-assessments.show', compact('responses', 'questionCategories'));
     }
