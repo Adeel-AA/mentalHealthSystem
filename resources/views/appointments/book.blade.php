@@ -28,7 +28,7 @@
                 var calendar = new FullCalendar.Calendar(calendarEl, {
 
                     timeZone: 'Europe/London',
-                    events: SITEURL + '/appointments/json',
+                    events: SITEURL + '/availability/json',
 
                     selectable: false,
                     // editable: true,
@@ -105,72 +105,23 @@
     </head>
 
     <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-4">
-                <div class="card">
-                    <div class="card-header">My Appointments</div>
-                    <div class="card-body container-fluid">
-                        <div class="h5 text-center">
-                            <p>Below are your booked appointments</p>
-                            @if($appointments->isEmpty())
-                                <br><p>You have no appointments</p>
-                            @endif
-                        </div>
-                        <br>
+        <div class="justify-content-center">
+            <div class="card">
+                <div class="card-header">Appointments</div>
 
-                        <ul class="list-group">
-                            @foreach($appointments as $appointment)
-                                <li class="list-group-item border {{$loop->last ? '' : 'mb-4'}} p-4">
+                <div class="card-body container-fluid">
+                    <div class="h5 text-center">
+                        <p>Please select an available slot from below to book an appointment</p>
 
-                                    <medium id="appointment_with">Appointment With: {{ $appointment->user_name }}
-                                        <br>
-                                    </medium>
-                                    <medium id="appointment_start">
-                                        Start: {{ \Carbon\Carbon::parse($appointment->start)->toRfc7231String()}}
-                                        <br>
-                                    </medium>
-                                    <medium id="appointment_end">
-                                        End: {{ \Carbon\Carbon::parse($appointment->end)->toRfc7231String()}}
-                                    </medium>
-                                    <small id="booked_on"
-                                           class="form-text text-muted">Booked
-                                        On: {{ \Carbon\Carbon::parse($appointment->created_at)->toRfc7231String()}}</small>
-                                    @if($appointment->comments)
-                                        <small id="comments"
-                                               class="form-text text-muted">Comments: {{ $appointment->comments }}</small>
-                                    @endif
-
-
-                                </li>
-                            @endforeach
-                            {{--                                    <div class="btn btn-dark btn-lg">--}}
-                            {{--                                        <a href="/surveys/{{ $questionCategory->id}}-{{ Str::slug($questionCategory->question_type) }}">Start--}}
-                            {{--                                            Self-Assessment</a>--}}
-                            {{--                                    </div>--}}
-                        </ul>
                     </div>
+                    <br>
+                    <div id='calendar'></div>
                 </div>
-                <br>
-            </div>
-            <div class="col-md-8">
-                <div class="card">
-                    <div class="card-header">My Calendar</div>
 
-                    <div class="card-body container-fluid">
-                        <div class="h5 text-center">
-                            <p>Your booked appointments can be seen below</p>
-                            <p>Select an appointment if you would like to cancel it</p>
-
-                        </div>
-                        <br>
-                        <div id='calendar'></div>
-                    </div>
-
-                </div>
-                <br>
             </div>
         </div>
     </div>
+
 
     </html>
 </x-app>

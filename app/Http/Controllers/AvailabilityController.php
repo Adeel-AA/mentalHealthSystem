@@ -2,10 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use Acaronlex\LaravelCalendar\Calendar;
 use App\Models\Availability;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Validator;
 
 class AvailabilityController extends Controller
 {
