@@ -9,11 +9,16 @@ use Illuminate\Http\Request;
 class AppointmentController extends Controller
 {
 
-
     public function show()
     {
+        $appointments = Appointment::where('user_id', auth()->user()->id)->get();
+        return view('appointments.show', compact('appointments'));
+    }
 
-        return view('appointments.show');
+    public function book()
+    {
+
+        return view('appointments.book');
 
 
     }
@@ -34,5 +39,12 @@ class AppointmentController extends Controller
         ]);
 
 
+    }
+
+    public function jsonFeed()
+    {
+        $appointments = Appointment::where('user_id', auth()->user()->id)->get();
+
+        return response()->json($appointments);
     }
 }

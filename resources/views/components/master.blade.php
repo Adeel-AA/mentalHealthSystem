@@ -23,9 +23,9 @@
 </head>
 <body>
 
-<div id="app">
+<div id="app" class="">
     <section class="px-8 py-4 mb-6">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+        <nav class="navbar navbar-expand-md navbar-light bg-blue-25 shadow-sm ">
             {{--            <header class="container mx-auto">--}}
             {{--                <h1>Mental Health System</h1>--}}
             {{--            </header>--}}
@@ -77,12 +77,28 @@
                         @can('create-availability')
                         @endcan
 
+
                         <li class="{{ Request::is('availability') ? 'active font-weight-bold' : '' }} nav-item ">
                             <a class="nav-link" href="{{ route('availability') }}">Availability</a>
                         </li>
-                        <li class="{{ Request::is('appointments') ? 'active font-weight-bold' : '' }} nav-item ">
-                            <a class="nav-link" href="{{ route('appointments') }}">Appointments</a>
+                        <li class="nav-item dropdown {{ Request::is('appointments*') ? 'active font-weight-bold' : '' }}">
+                            <a id="navbarDropdown" class="nav-link dropdown-toggle" role="button"
+                               data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                Appointments
+                            </a>
+
+                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="{{ route('book-appointment') }}">
+                                    Book Appointment
+                                </a>
+                                <a class="dropdown-item" href="{{ route('my-appointments') }}">
+                                    My Calendar
+                                </a>
+                            </div>
+
+
                         </li>
+
 
                     @endif
                 </ul>

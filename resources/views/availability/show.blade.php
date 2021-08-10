@@ -63,7 +63,7 @@
                             },
                             type: 'POST',
                             success: function () {
-                                alert('Your availability has been successfully ');
+                                alert('Your availability has been successfully added');
                             }
 
                         })

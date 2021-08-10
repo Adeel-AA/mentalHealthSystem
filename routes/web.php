@@ -28,7 +28,10 @@ Route::middleware('auth')->group(function () {
     Route::get('/self-assessments', [SelfAssessmentController::class, 'index'])->name('self-assessments');
     Route::get('/self-assessments/show', [SelfAssessmentController::class, 'show'])->name('my-self-assessments');
 
-    Route::get('/appointments', [AppointmentController::class, 'show'])->name('appointments');
+    Route::get('/appointments/book', [AppointmentController::class, 'book'])->name('book-appointment');
+    Route::get('/appointments', [AppointmentController::class, 'show'])->name('my-appointments');
+    Route::get('/appointments/json', [AppointmentController::class, 'jsonFeed']);
+
     Route::post('/appointments', [AppointmentController::class, 'store']);
 
     Route::middleware('can:create-availability,availability')->group(function () {
