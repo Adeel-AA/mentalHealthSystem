@@ -3,7 +3,7 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header">{{ __('Create New Question') }}</div>
+                    <div class="card-header bg-blue-5">{{ __('Create New Question') }}</div>
 
                     <div class="card-body">
                         <form method="POST" action="/question-categories/{{ $questionCategory->id }}/questions">

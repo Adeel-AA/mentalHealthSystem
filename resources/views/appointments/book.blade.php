@@ -107,7 +107,7 @@
     <div class="container">
         <div class="justify-content-center">
             <div class="card">
-                <div class="card-header">Appointments</div>
+                <div class="card-header bg-blue-5">Appointments</div>
 
                 <div class="card-body container-fluid">
                     <div class="h5 text-center">

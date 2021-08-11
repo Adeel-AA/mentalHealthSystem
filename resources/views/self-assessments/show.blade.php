@@ -3,7 +3,7 @@
         <div class="row justify-content-center">
             <div class="col-md-6">
                 <div class="card">
-                    <div class="card-header">My Assessments</div>
+                    <div class="card-header bg-blue-5">My Assessments</div>
                     <div class="card-body container-fluid">
                         <div class="h5 text-center">
                             <p>Please select one of your previous assessments to view</p>
