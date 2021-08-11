@@ -4,7 +4,7 @@
             <div class="col-md-8">
                 <div class="card">
 
-                    <div class="card-header bg-blue-10  border-0">Home Page</div>
+                    <div class="card-header bg-blue-5">Home Page</div>
 
                     <div class="card-body container-fluid">
                         <div class="h2">

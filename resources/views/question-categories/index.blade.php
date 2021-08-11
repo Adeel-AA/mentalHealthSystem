@@ -3,7 +3,7 @@
         <div class="row justify-content-center">
             <div class="col-md-6">
                 <div class="card">
-                    <div class="card-header bg-blue">Question Categories</div>
+                    <div class="card-header bg-blue-5">Question Categories</div>
 
                     <div class="card-body container-fluid">
 

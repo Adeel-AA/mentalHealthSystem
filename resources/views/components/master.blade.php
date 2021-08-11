@@ -23,96 +23,94 @@
 </head>
 <body>
 
-<div id="app" class="">
+<div id="app">
     <section class="px-8 py-4 mb-6">
-        <nav class="navbar navbar-expand-md navbar-light bg-blue-25 shadow-sm ">
-            {{--            <header class="container mx-auto">--}}
-            {{--                <h1>Mental Health System</h1>--}}
-            {{--            </header>--}}
+        <nav class="navbar navbar-expand-md navbar-light bg-blue-10 shadow-sm border">
+
             <div class="container">
-
-                <!-- Left Side Of Navbar -->
-                <ul class="navbar-nav">
-                    @if(auth()->check())
-                        <li class="nav-item {{ Request::is('home') ? 'active font-weight-bold' : '' }}">
-                            <a class="nav-link" href="{{ route('home') }}">Home</a>
-                        </li>
-
-                        <li class="nav-item dropdown {{ Request::is('self-assessments*') || Request::is('surveys*') ? 'active font-weight-bold' : '' }}">
-                            <a id="navbarDropdown" class="nav-link dropdown-toggle" role="button"
-                               data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                Self-Assessment
-                            </a>
-
-                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="{{ route('self-assessments') }}">
-                                    Begin Self-Assessment
-                                </a>
-                                <a class="dropdown-item" href="{{ route('my-self-assessments') }}">
-                                    View My Assessments
-                                </a>
-                            </div>
-
-
-                        </li>
-
-                        <li class="nav-item dropdown {{ Request::is('question-categories*') ? 'active font-weight-bold' : '' }}">
-                            <a id="navbarDropdown" class="nav-link dropdown-toggle" role="button"
-                               data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                Questions
-                            </a>
-
-                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="{{ route('create-question-category') }}">
-                                    Create New Category
-                                </a>
-                                <a class="dropdown-item" href="{{ route('view-question-categories') }}">
-                                    View Question Categories
-                                </a>
-                            </div>
-
-
-                        </li>
-
-                        @can('create-availability')
-                        @endcan
-
-
-                        <li class="{{ Request::is('availability') ? 'active font-weight-bold' : '' }} nav-item ">
-                            <a class="nav-link" href="{{ route('availability') }}">Availability</a>
-                        </li>
-                        <li class="nav-item dropdown {{ Request::is('appointments*') ? 'active font-weight-bold' : '' }}">
-                            <a id="navbarDropdown" class="nav-link dropdown-toggle" role="button"
-                               data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                Appointments
-                            </a>
-
-                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="{{ route('book-appointment') }}">
-                                    Book Appointment
-                                </a>
-                                <a class="dropdown-item" href="{{ route('my-appointments') }}">
-                                    My Calendar
-                                </a>
-                            </div>
-
-
-                        </li>
-
-
-                    @endif
-                </ul>
-                <header class="navbar-brand">
-                    {{ config('app.name', 'Mental Health System') }}
-                </header>
-
                 <button class="navbar-toggler" type="button" data-toggle="collapse"
                         data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
                 </button>
+                <div class="navbar-collapse" id="navbarSupportedContent">
+                    <!-- Left Side Of Navbar -->
+                    <ul class="navbar-nav mr-auto">
+                        @if(auth()->check())
+                            <li class="nav-item {{ Request::is('home') ? 'active font-weight-bold' : '' }}">
+                                <a class="nav-link" href="{{ route('home') }}">Home</a>
+                            </li>
 
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                            <li class="nav-item dropdown {{ Request::is('self-assessments*') || Request::is('surveys*') ? 'active font-weight-bold' : '' }}">
+                                <a id="navbarDropdown" class="nav-link dropdown-toggle" role="button"
+                                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                    Self-Assessment
+                                </a>
+
+                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="{{ route('self-assessments') }}">
+                                        Begin Self-Assessment
+                                    </a>
+                                    <a class="dropdown-item" href="{{ route('my-self-assessments') }}">
+                                        View My Assessments
+                                    </a>
+                                </div>
+
+
+                            </li>
+
+                            <li class="nav-item dropdown {{ Request::is('question-categories*') ? 'active font-weight-bold' : '' }}">
+                                <a id="navbarDropdown" class="nav-link dropdown-toggle" role="button"
+                                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                    Questions
+                                </a>
+
+                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="{{ route('create-question-category') }}">
+                                        Create New Category
+                                    </a>
+                                    <a class="dropdown-item" href="{{ route('view-question-categories') }}">
+                                        View Question Categories
+                                    </a>
+                                </div>
+
+
+                            </li>
+
+                            @can('create-availability')
+                            @endcan
+
+
+                            <li class="{{ Request::is('availability') ? 'active font-weight-bold' : '' }} nav-item ">
+                                <a class="nav-link" href="{{ route('availability') }}">Availability</a>
+                            </li>
+                            <li class="nav-item dropdown {{ Request::is('appointments*') ? 'active font-weight-bold' : '' }}">
+                                <a id="navbarDropdown" class="nav-link dropdown-toggle" role="button"
+                                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                    Appointments
+                                </a>
+
+                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="{{ route('book-appointment') }}">
+                                        Book Appointment
+                                    </a>
+                                    <a class="dropdown-item" href="{{ route('my-appointments') }}">
+                                        My Calendar
+                                    </a>
+                                </div>
+
+
+                            </li>
+
+
+                        @endif
+                    </ul>
+                </div>
+                <header class="navbar-brand navbar-collapse text-center">
+                    {{ config('app.name', 'Mental Health System') }}
+                </header>
+
+                <div class="navbar-collapse" id="navbarSupportedContent">
 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">

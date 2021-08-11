@@ -108,7 +108,7 @@
         <div class="row justify-content-center">
             <div class="col-md-4">
                 <div class="card">
-                    <div class="card-header">My Appointments</div>
+                    <div class="card-header bg-blue-5">My Appointments</div>
                     <div class="card-body container-fluid">
                         <div class="h5 text-center">
                             <p>Below are your booked appointments</p>
@@ -154,7 +154,7 @@
             </div>
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header">My Calendar</div>
+                    <div class="card-header bg-blue-5">My Calendar</div>
 
                     <div class="card-body container-fluid">
                         <div class="h5 text-center">

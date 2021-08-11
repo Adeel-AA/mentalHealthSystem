@@ -3,7 +3,7 @@
         <div class="row justify-content-center">
             <div class="col-md-6">
                 <div class="card">
-                    <div class="card-header">{{ $questionCategory->question_type }}</div>
+                    <div class="card-header bg-blue-5">{{ $questionCategory->question_type }}</div>
                     <div class="card-body">{{ $questionCategory->purpose }}</div>
                 </div>
                 <form method="POST"
@@ -13,7 +13,7 @@
 
                     @foreach($questionCategory->questions as $key => $question)
                         <div class="card mt-4">
-                            <div class="card-header">{{ $key + 1 }}. {{ $question->question }}</div>
+                            <div class="card-header bg-blue-5">{{ $key + 1 }}. {{ $question->question }}</div>
 
                             <div class="card-body">
 
@@ -42,7 +42,7 @@
                         </div>
                         @if($loop->last)
                             <div class="card mt-4">
-                                <div class="card-header">Notes - Please add any notes (optional)</div>
+                                <div class="card-header bg-blue-5">Notes - Please add any notes (optional)</div>
                                 <div class="card-body">
 
                                     @error('notes')
