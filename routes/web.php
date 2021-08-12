@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AppointmentController;
 use App\Http\Controllers\AvailabilityController;
+use App\Http\Controllers\HelpController;
 use App\Http\Controllers\QuestionCategoryController;
 use App\Http\Controllers\QuestionController;
 use App\Http\Controllers\SelfAssessmentController;
@@ -21,10 +22,12 @@ use Illuminate\Support\Facades\Route;
 Auth::routes();
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('home');
 });
 
 Route::middleware('auth')->group(function () {
+    Route::get('/help', [HelpController::class, 'index'])->name('help');
+
     Route::get('/self-assessments', [SelfAssessmentController::class, 'index'])->name('self-assessments');
     Route::get('/self-assessments/show', [SelfAssessmentController::class, 'show'])->name('my-self-assessments');
 

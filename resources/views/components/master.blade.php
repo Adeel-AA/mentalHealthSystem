@@ -106,7 +106,7 @@
                         @endif
                     </ul>
                 </div>
-                <header class="navbar-brand navbar-collapse text-center">
+                <header class="navbar-brand justify-content-center navbar-collapse">
                     {{ config('app.name', 'Mental Health System') }}
                 </header>
 
@@ -128,6 +128,9 @@
                                 </li>
                             @endif
                         @else
+                            <li class="mr-5 nav-item font-weight-bolder  {{ Request::is('help') ? 'active font-weight-bold' : '' }}">
+                                <a class="nav-link text-danger" href="{{ route('help') }}">Get Help Now</a>
+                            </li>
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
