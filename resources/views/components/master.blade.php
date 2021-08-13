@@ -58,32 +58,32 @@
 
 
                             </li>
-
-                            <li class="nav-item dropdown {{ Request::is('question-categories*') ? 'active font-weight-bold' : '' }}">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" role="button"
-                                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    Questions
-                                </a>
-
-                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('create-question-category') }}">
-                                        Create New Category
+                            @can('change-questions')
+                                <li class="nav-item dropdown {{ Request::is('question-categories*') ? 'active font-weight-bold' : '' }}">
+                                    <a id="navbarDropdown" class="nav-link dropdown-toggle" role="button"
+                                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                        Questions
                                     </a>
-                                    <a class="dropdown-item" href="{{ route('view-question-categories') }}">
-                                        View Question Categories
-                                    </a>
-                                </div>
 
-
-                            </li>
-
-                            @can('create-availability')
+                                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                        <a class="dropdown-item" href="{{ route('create-question-category') }}">
+                                            Create New Category
+                                        </a>
+                                        <a class="dropdown-item" href="{{ route('view-question-categories') }}">
+                                            View Question Categories
+                                        </a>
+                                    </div>
+                                </li>
                             @endcan
 
 
-                            <li class="{{ Request::is('availability') ? 'active font-weight-bold' : '' }} nav-item ">
-                                <a class="nav-link" href="{{ route('availability') }}">Availability</a>
-                            </li>
+                            @can('change-availability')
+                                <li class="{{ Request::is('availability') ? 'active font-weight-bold' : '' }} nav-item ">
+                                    <a class="nav-link" href="{{ route('availability') }}">Availability</a>
+                                </li>
+                            @endcan
+
+
                             <li class="nav-item dropdown {{ Request::is('appointments*') ? 'active font-weight-bold' : '' }}">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" role="button"
                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>

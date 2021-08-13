@@ -28,7 +28,11 @@ class AuthServiceProvider extends ServiceProvider
     {
         $this->registerPolicies();
 
-        Gate::define('create-availability', function (User $user) {
+        Gate::define('change-availability', function (User $user) {
+            return $user->is_admin === 1 || $user->is_counsellor === 1;
+        });
+
+        Gate::define('change-questions', function (User $user) {
             return $user->is_admin === 1 || $user->is_counsellor === 1;
         });
     }

@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Question;
 use App\Models\QuestionCategory;
 use App\Models\Survey;
-use Illuminate\Http\Request;
+use App\Models\SurveyResponse;
 
 class SelfAssessmentController extends Controller
 {
@@ -21,5 +22,23 @@ class SelfAssessmentController extends Controller
         $questionCategories = QuestionCategory::all();
 
         return view('self-assessments.show', compact('responses', 'questionCategories'));
+    }
+
+    public function showById(QuestionCategory $questionCategory)
+    {
+        $questionCategory->load('questions.answers.responses');
+        $response_ids = [];
+
+        $responses = Survey::where('user_id', auth()->user()->id)->get();
+
+        foreach ($responses as $response) {
+            $response->id = $response_ids;
+        }
+
+        $surveyResponses = SurveyResponse::where('survey_id', $response_ids)->get();
+
+        $questionCategories = QuestionCategory::all();
+
+        return view('self-assessments.show-by-id', compact('questionCategory', 'responses', 'surveyResponses'));
     }
 }

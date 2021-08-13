@@ -106,7 +106,8 @@
                 <div class="card-body container-fluid">
                     <div class="h5 text-center">
                         <p>Please select a day where you want to set availability</p>
-                        <p>You can drag along the times to set availability</p>
+                        <br>
+                        <p>You can drag along the time on the left side to set availability on that day</p>
                     </div>
                     <br>
                     <div id='calendar'></div>

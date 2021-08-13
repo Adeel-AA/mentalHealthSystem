@@ -111,12 +111,10 @@
                     <div class="card-header bg-blue-5">My Appointments</div>
                     <div class="card-body container-fluid">
                         <div class="h5 text-center">
-                            <p>Below are your booked appointments</p>
                             @if($appointments->isEmpty())
-                                <br><p>You have no appointments</p>
+                                <p>You have no appointments</p>
                             @endif
                         </div>
-                        <br>
 
                         <ul class="list-group">
                             @foreach($appointments as $appointment)
@@ -158,9 +156,9 @@
 
                     <div class="card-body container-fluid">
                         <div class="h5 text-center">
-                            <p>Your booked appointments can be seen below</p>
-                            <p>Select an appointment if you would like to cancel it</p>
-
+                            <p>Your booked appointments will be shown below</p>
+                            <br>
+                            <p>Click on the appointment if you would like to cancel it</p>
                         </div>
                         <br>
                         <div id='calendar'></div>
