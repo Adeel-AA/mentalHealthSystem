@@ -32,7 +32,7 @@ class QuestionCategoryController extends Controller
 
     public function show(QuestionCategory $questionCategory)
     {
-        //Lazy load questions and answers
+        // Lazy load questions, answers and responses
         $questionCategory->load('questions.answers.responses');
 
         return view('question-categories.show', compact('questionCategory'));

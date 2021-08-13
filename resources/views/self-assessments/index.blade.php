@@ -8,11 +8,11 @@
                     <div class="card-body container-fluid">
 
                         <div class="h3 text-center">
-                            <p>Choose which area you'd like to focus on...</p>
+                            <p>Choose which area you'd like to focus on</p>
 
                         </div>
                         <div class="h4 text-center">
-                            <p>To begin an assessment please select...</p>
+                            <p>To begin an assessment please select one of the following</p>
                         </div>
                         <div class="card-body">
                             <ul class="list-group">

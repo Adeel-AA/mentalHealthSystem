@@ -5,6 +5,11 @@
                 <div class="card">
                     <div class="card-header bg-blue-5">My Assessments</div>
                     <div class="card-body container-fluid">
+                        @if($responses->isEmpty())
+                            <div class="h5 text-center">
+                                <p>You dont have any assessments</p>
+                            </div>
+                        @endif
                         <div class="h5 text-center">
                             <p>Please select one of your previous assessments to view</p>
                         </div>
@@ -13,10 +18,11 @@
                         <ul class="list-group">
                             @foreach($responses as $response)
                                 <li class="list-group-item border {{$loop->last ? '' : 'mb-4'}} p-4">
-                                    <a class="stretched-link"
-                                       href="">Assessment Submitted: {{ $response->created_at }}</a>
                                     @foreach($questionCategories as $questionCategory)
                                         @if($questionCategory->id === $response->question_category_id)
+                                            <a class="stretched-link"
+                                               href="{{ route('my-self-assessment',$questionCategory->id) }}">Assessment
+                                                Submitted: {{ \Carbon\Carbon::parse($response->created_at)->toRfc7231String() }}</a>
                                             <small id="question_type"
                                                    class="form-text text-muted">Question
                                                 Type: {{$questionCategory->question_type}} </small>
@@ -37,6 +43,7 @@
                             {{--                                            Self-Assessment</a>--}}
                             {{--                                    </div>--}}
                         </ul>
+
                     </div>
 
                 </div>

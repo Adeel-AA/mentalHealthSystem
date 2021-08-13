@@ -57,8 +57,8 @@
                         @endif
                     @endforeach
                     <br>
-                    <button class="btn btn-primary" type="submit">Complete Survey</button>
-                    <button class="btn btn-secondary float-right" type="reset">Clear Form</button>
+                    <button class="btn btn-secondary" type="reset">Clear Form</button>
+                    <button class="btn btn-primary float-right" type="submit">Complete Survey</button>
                 </form>
 
                 <br>
