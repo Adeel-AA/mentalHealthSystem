@@ -5,7 +5,7 @@
 ## About Mental Health System
 
 As part of my final year project dissertation, I embarked on a quest to research students mental health and develop a system which allows users to complete a self-assessment concerning areas of their mental wellbeing. As well as a student user having the ability to book appointments with mental health counsellors at university.
-By default, the question bank is seeded with the original questions and corresponding answers from [GRiST, Galatean Risk and Safety Technology](www.egrist.org), which in its own right is a web-based decision support system designed to help practitioners assess and manage risks associated with mental health problems, including suicide, self-harm, self-neglect, vulnerability, and harm to others. 
+By default, the question bank is seeded with the original questions and corresponding answers from [GRiST, Galatean Risk and Safety Technology](https://www.egrist.org), which in its own right is a web-based decision support system designed to help practitioners assess and manage risks associated with mental health problems, including suicide, self-harm, self-neglect, vulnerability, and harm to others. 
 
 
 ## Functionality
