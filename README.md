@@ -1,67 +1,48 @@
 # Mental Health System
 
-<p align="center"><a target="_blank"><img src="public/images/Screenshot1.png" width="400"></a></p>
+*README still in progress
 
-## About Laravel
+## About Mental Health System
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and
-creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in
-many web projects, such as:
+As part of my final year project dissertation, I embarked on a quest to research students mental health and develop a system which allows users to complete a self-assessment concerning areas of their mental wellbeing. As well as a student user having the ability to book appointments with mental health counsellors at university.
+By default, the question bank is seeded with the original questions and corresponding answers from [GRiST, Galatean Risk and Safety Technology](www.egrist.org), which in its own right is a web-based decision support system designed to help practitioners assess and manage risks associated with mental health problems, including suicide, self-harm, self-neglect, vulnerability, and harm to others. 
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache)
-  storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## Functionality
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+- Users can complete a self-assessment concerning areas of their mental wellbeing
+- Users can view their previous self-assessments
+- Counsellor users can create question categories, add questions to them along with their corresponding answer choices
+- Counsellor users can submit their available time slots on a calendar
+- Users can select available time slots to book an appointment with a counsellor
 
-## Learning Laravel
+## Tech Stack / Development
+- Laravel
+- Sail
+- WSL2 - Ubuntu
+- FullCalendar
+- AJAX
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all
-modern web application frameworks, making it a breeze to get started with the framework.
+To deploy the application you can simply use `sail up`
+Sail allows for interaction with Laravel's default Docker development environment. Providing PHP, MySQL and Redis out of the box.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video
-tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging
-into our comprehensive video library.
 
-## Laravel Sponsors
+## Testing
+- Laravel Dusk Browser Automation Testing  
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in
-becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+To run the Laravel Dusk test suite use `sail dusk`
 
-### Premium Partners
+- Behaviour Driven Development/Test Driven Development
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
+To run the unit tests with PHPUnit, simply use `sail artisan test`
 
-## Contributing
+// More tests are being developed
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in
-the [Laravel documentation](https://laravel.com/docs/contributions).
+## More on GRiST
 
-## Code of Conduct
+It has been developed by cognitive and computer scientists at Aston University over a period of 17 years and has recently been spun out into its own company, eGRiST Ltd. GRiST integrates patient data, mental-health practitioners expertise and empirical evidence to support comprehensive clinical risk evaluations, risk formulations, and safety plans. Machine learning provides predictions that are compared with the clinician’s own judgement to provide real-time benchmarking against data from thousands of colleagues. GRiST has been adopted by a number of secondary and community mental-health Trusts, charities, and private organisation. As of May 2018, it held over 1.5 million individual risk judgements in 380,000 completed assessments from 160,000 patients. At present, GRiST provides assessments covering the complete care pathway, from screening to full assessments, focused repeat assessments, and specialist versions for forensic services and learning disabilities. The self-assessment version, myGRiST, gives access to risk predictions and advice for the general public with output reports that can be linked with mental-health providers. GRiST can help Trusts understand how clinicians make risk judgements, compare these judgements to the expert knowledge held within GRiST and feed these learnings back into the system. Trials have also shown that the system can enrich the risk assessment process by flagging important behavioural cues that practitioners might have not considered incorporating into a risk assessment. In general, the GRiST data provide a valuable resource for researchers to increase understanding of how risks are identified and managed to improve people’s mental health, safety, and well-being. The GRiST team is always looking to work with people and organisations using GRiST, not only to enhance GRiST but also to help increase overall understanding of mental health and service provision.
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by
-the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell
-via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+## Screenshots of Application
+<p align="center"><a target="_blank"><img src="public/images/Screenshot1.png"></a></p>
+<p align="center"><a target="_blank"><img src="public/images/Screenshot2.png"></a></p>
+<p align="center"><a target="_blank"><img src="public/images/Screenshot3.png"></a></p>
+<p align="center"><a target="_blank"><img src="public/images/Screenshot4.png"></a></p>
