@@ -7,7 +7,9 @@
 As part of my final year project dissertation, I embarked on a quest to research students mental health and develop a system which allows users to complete a self-assessment concerning areas of their mental wellbeing. As well as a student user having the ability to book appointments with mental health counsellors at university.
 By default, the question bank is seeded with the original questions and corresponding answers from [GRiST, Galatean Risk and Safety Technology](www.egrist.org), which in its own right is a web-based decision support system designed to help practitioners assess and manage risks associated with mental health problems, including suicide, self-harm, self-neglect, vulnerability, and harm to others. 
 
+
 ## Functionality
+
 
 - Users can complete a self-assessment concerning areas of their mental wellbeing
 - Users can view their previous self-assessments
@@ -22,6 +24,7 @@ By default, the question bank is seeded with the original questions and correspo
 - FullCalendar
 - AJAX
 
+
 To deploy the application you can simply use `sail up`
 Sail allows for interaction with Laravel's default Docker development environment. Providing PHP, MySQL and Redis out of the box.
 
@@ -33,9 +36,12 @@ To run the Laravel Dusk test suite use `sail dusk`
 
 - Behaviour Driven Development/Test Driven Development
 
-To run the unit tests with PHPUnit, simply use `sail artisan test`
+
+To run the unit tests with PHPUnit, simply use `sail artisan test` 
+
 
 // More tests are being developed
+
 
 ## More on GRiST
 
