@@ -6,8 +6,8 @@ use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 
-class UserSeeder extends Seeder
-{
+class UserSeeder extends Seeder {
+
     /**
      * Run the database seeds.
      *
@@ -35,4 +35,5 @@ class UserSeeder extends Seeder
             'password' => Hash::make('hello123')
         ]);
     }
+
 }

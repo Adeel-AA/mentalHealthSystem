@@ -2,16 +2,16 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Question;
 use App\Models\QuestionCategory;
 use App\Models\Survey;
 use App\Models\SurveyResponse;
 
-class SelfAssessmentController extends Controller
-{
+class SelfAssessmentController extends Controller {
+
     public function index()
     {
         $questionCategories = QuestionCategory::all();
+
         return view('self-assessments.index', compact('questionCategories'));
     }
 
@@ -31,7 +31,8 @@ class SelfAssessmentController extends Controller
 
         $responses = Survey::where('user_id', auth()->user()->id)->get();
 
-        foreach ($responses as $response) {
+        foreach ($responses as $response)
+        {
             $response->id = $response_ids;
         }
 

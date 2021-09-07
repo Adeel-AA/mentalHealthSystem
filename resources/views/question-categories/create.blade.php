@@ -15,7 +15,8 @@
                                 <input name="question_type" type="text" class="form-control" id="question_type"
                                        aria-describedby="question_type_help"
                                        placeholder="Enter Question Type">
-                                <small id="question_type_help" class="form-text text-muted">What is the type of question?</small>
+                                <small id="question_type_help" class="form-text text-muted">What is the type of
+                                    question?</small>
 
                                 @error('question_type')
                                 <small class="text-danger">{{ $message }}</small>

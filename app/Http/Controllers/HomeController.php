@@ -4,8 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\QuestionCategory;
 
-class HomeController extends Controller
-{
+class HomeController extends Controller {
+
     /**
      * Create a new controller instance.
      *

@@ -27,16 +27,17 @@
                                 <br>
 
                                 <li class=""><a
-                                        href="https://www.nhs.uk/mental-health/nhs-voluntary-charity-services/charity-and-voluntary-services/get-help-from-mental-health-helplines/">NHS
+                                            href="https://www.nhs.uk/mental-health/nhs-voluntary-charity-services/charity-and-voluntary-services/get-help-from-mental-health-helplines/">NHS
                                         Mental Health Support</a></li>
                                 <li class=""><a
-                                        href="https://www.supportline.org.uk/problems/suicide/">Suicide Support Line</a>
+                                            href="https://www.supportline.org.uk/problems/suicide/">Suicide Support
+                                        Line</a>
                                 </li>
                                 <li class=""><a
-                                        href="https://www.mind.org.uk/">Mind</a>
+                                            href="https://www.mind.org.uk/">Mind</a>
                                 </li>
                                 <li class=""><a
-                                        href="https://www.rethink.org/">Rethink Mental Illness</a>
+                                            href="https://www.rethink.org/">Rethink Mental Illness</a>
                                 </li>
 
                             </ul>

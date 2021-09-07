@@ -3,13 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Models\QuestionCategory;
-use Illuminate\Http\Request;
 
-class QuestionCategoryController extends Controller
-{
+class QuestionCategoryController extends Controller {
+
     public function index()
     {
         $questionCategories = QuestionCategory::all();
+
         return view('question-categories.index', compact('questionCategories'));
     }
 

@@ -7,8 +7,8 @@ use Facebook\WebDriver\Remote\DesiredCapabilities;
 use Facebook\WebDriver\Remote\RemoteWebDriver;
 use Laravel\Dusk\TestCase as BaseTestCase;
 
-abstract class DuskTestCase extends BaseTestCase
-{
+abstract class DuskTestCase extends BaseTestCase {
+
     use CreatesApplication;
 
     /**
@@ -19,7 +19,8 @@ abstract class DuskTestCase extends BaseTestCase
      */
     public static function prepare()
     {
-        if (! static::runningInSail()) {
+        if (! static::runningInSail())
+        {
             static::startChromeDriver();
         }
     }
@@ -56,6 +57,6 @@ abstract class DuskTestCase extends BaseTestCase
     protected function hasHeadlessDisabled()
     {
         return isset($_SERVER['DUSK_HEADLESS_DISABLED']) ||
-               isset($_ENV['DUSK_HEADLESS_DISABLED']);
+            isset($_ENV['DUSK_HEADLESS_DISABLED']);
     }
 }

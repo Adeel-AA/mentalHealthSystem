@@ -2,12 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\QuestionCategory;
 use App\Models\Question;
-use Illuminate\Http\Request;
+use App\Models\QuestionCategory;
 
-class QuestionController extends Controller
-{
+class QuestionController extends Controller {
+
     public function create(QuestionCategory $questionCategory)
     {
         return view('questions.create', compact('questionCategory'));

@@ -5,8 +5,8 @@ namespace Tests\Browser;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Tests\DuskTestCase;
 
-class RegisterTest extends DuskTestCase
-{
+class RegisterTest extends DuskTestCase {
+
     use DatabaseMigrations;
 
     /**

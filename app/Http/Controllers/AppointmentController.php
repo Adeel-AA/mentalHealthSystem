@@ -3,15 +3,14 @@
 namespace App\Http\Controllers;
 
 use App\Models\Appointment;
-use App\Models\Availability;
 use Illuminate\Http\Request;
 
-class AppointmentController extends Controller
-{
+class AppointmentController extends Controller {
 
     public function show()
     {
         $appointments = Appointment::where('user_id', auth()->user()->id)->get();
+
         return view('appointments.show', compact('appointments'));
     }
 

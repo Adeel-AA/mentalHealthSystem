@@ -49,7 +49,9 @@
                                 @method('DELETE')
                                 @csrf
 
-                                <button type="submit" class="btn btn-sm btn-outline-danger float-right">Delete Question</button>
+                                <button type="submit" class="btn btn-sm btn-outline-danger float-right">Delete
+                                    Question
+                                </button>
                             </form>
                         </div>
 

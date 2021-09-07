@@ -5,8 +5,8 @@ namespace Database\Seeders;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
-class QuestionBankSeeder extends Seeder
-{
+class QuestionBankSeeder extends Seeder {
+
     /**
      * Run the database seeds.
      *
