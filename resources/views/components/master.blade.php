@@ -51,7 +51,7 @@
                                     <a class="dropdown-item" href="{{ route('self-assessments') }}">
                                         Begin Self-Assessment
                                     </a>
-                                    <a class="dropdown-item" href="{{ route('my-self-assessments') }}">
+                                    <a class="dropdown-item" href="{{ route('show-self-assessments') }}">
                                         View My Assessments
                                     </a>
                                 </div>

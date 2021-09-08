@@ -33,6 +33,8 @@
 
                                                 <input type="hidden" name="responses[{{ $key }}][question_id]"
                                                        value="{{ $question->id }}">
+                                                <input type="hidden" name="responses[{{ $key }}][user_id]"
+                                                       value="{{ auth()->user()->id }}">
                                             </li>
                                         </label>
                                     @endforeach

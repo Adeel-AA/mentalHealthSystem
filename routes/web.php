@@ -30,8 +30,8 @@ Route::middleware('auth')->group(function () {
     Route::get('/help', [HelpController::class, 'index'])->name('help');
 
     Route::get('/self-assessments', [SelfAssessmentController::class, 'index'])->name('self-assessments');
-    Route::get('/self-assessments/show', [SelfAssessmentController::class, 'show'])->name('my-self-assessments');
-    Route::get('/self-assessments/{questionCategory}', [SelfAssessmentController::class, 'showById'])->name('my-self-assessment');
+    Route::get('/self-assessments/show', [SelfAssessmentController::class, 'show'])->name('show-self-assessments');
+    Route::get('/self-assessments/show-assessment', [SelfAssessmentController::class, 'showAssessment'])->name('show-my-self-assessment');
 
     Route::get('/appointments/book', [AppointmentController::class, 'book'])->name('book-appointment');
     Route::get('/appointments', [AppointmentController::class, 'show'])->name('my-appointments');

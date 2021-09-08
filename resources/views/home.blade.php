@@ -27,7 +27,7 @@
                                 <a href="{{ route('self-assessments') }}">Start New Assessment</a>
                             </div>
                             <div class="btn btn-dark btn-lg">
-                                <a href="{{ route('my-self-assessments') }}">My Assessments</a>
+                                <a href="{{ route('show-self-assessments') }}">My Assessments</a>
                             </div>
                             <div class="btn btn-dark btn-lg">
                                 <a href="{{ route('my-appointments') }}">My Calendar</a>

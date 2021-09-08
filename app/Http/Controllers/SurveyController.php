@@ -15,15 +15,21 @@ class SurveyController extends Controller {
 
     public function store(QuestionCategory $questionCategory)
     {
+
         $data = request()->validate([
-            'responses.*.answer_id' => 'required',
             'responses.*.question_id' => 'required',
+            'responses.*.answer_id' => 'required',
+            'responses.*.user_id' => 'required',
             'notes' => 'max:600'
         ]);
 
+//        ddd($data);
+
         $survey = $questionCategory->surveys()->create(['user_id' => auth()->id(), 'notes' => $data['notes']]);
+
+
         $survey->responses()->createMany($data['responses']);
 
-        return redirect(route('my-self-assessments'));
+        return redirect(route('show-self-assessments'));
     }
 }

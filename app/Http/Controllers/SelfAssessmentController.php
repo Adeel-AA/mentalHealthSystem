@@ -24,22 +24,26 @@ class SelfAssessmentController extends Controller {
         return view('self-assessments.show', compact('responses', 'questionCategories'));
     }
 
-    public function showById(QuestionCategory $questionCategory)
+    public function showAssessment()
     {
-        $questionCategory->load('questions.answers.responses');
-        $response_ids = [];
-
+        $questionCategories = QuestionCategory::all();
         $responses = Survey::where('user_id', auth()->user()->id)->get();
-
+        $surveyResponses = SurveyResponse::where('user_id', auth()->user()->id)->get();
         foreach ($responses as $response)
         {
-            $response->id = $response_ids;
+            foreach ($surveyResponses as $surveyResponse)
+            {
+
+                if ($response->user_id === auth()->user()->id && $surveyResponse->user_id === auth()->user()->id)
+                {
+                    return view('self-assessments.show-assessment', compact('questionCategories', 'responses', 'surveyResponses'));
+
+                }
+
+            }
+
         }
+        abort(404);
 
-        $surveyResponses = SurveyResponse::where('survey_id', $response_ids)->get();
-
-        $questionCategories = QuestionCategory::all();
-
-        return view('self-assessments.show-by-id', compact('questionCategory', 'responses', 'surveyResponses'));
     }
 }
