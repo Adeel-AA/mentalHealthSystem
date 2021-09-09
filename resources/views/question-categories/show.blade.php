@@ -14,7 +14,7 @@
 
 
                         <div class="card mt-4">
-                            <h1 class="card-header">Question Type: {{ $questionCategory->question_type }}</h1>
+                            <h1 class="card-header bg-blue-5">Question Type: {{ $questionCategory->question_type }}</h1>
                             <div class="card-body">
 
                                 <small id="purpose"
@@ -27,7 +27,7 @@
 
                 @foreach($questionCategory->questions as $question)
                     <div class="card mt-4">
-                        <div class="card-header">{{ $question->question }}</div>
+                        <div class="card-header bg-blue-5">{{ $question->question }}</div>
                         <div class="card-body">
                             <ul class="list-group">
                                 @foreach($question->answers as $answer)
