@@ -29,7 +29,7 @@ class SelfAssessmentController extends Controller {
 
         $questionCategory->load('questions.answers.responses');
 //        $questionCategory = QuestionCategory::with('questions.answers.responses')->get();
-        
+
         $responses = Survey::where('uuid', $uuid)->get();
         $surveyResponses = SurveyResponse::where('user_id', auth()->user()->id)->get();
 

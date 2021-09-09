@@ -5,7 +5,7 @@
                 <div class="card">
                     <div class="card-header bg-blue-5">Assessment</div>
                     <div class="card-body container-fluid">
-                        
+
                         <div class="card mt-4">
                             <h1 class="card-header bg-blue-5">Question
                                 Type: {{ $questionCategory->question_type }}</h1>
