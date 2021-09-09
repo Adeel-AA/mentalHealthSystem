@@ -40,6 +40,9 @@
                                     @endforeach
                                 </ul>
 
+                                <input type="hidden" name="uuid"
+                                       value="{{ Str::uuid() }}">
+
                             </div>
                         </div>
                         @if($loop->last)

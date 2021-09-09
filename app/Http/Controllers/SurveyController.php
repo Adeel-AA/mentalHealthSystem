@@ -20,12 +20,17 @@ class SurveyController extends Controller {
             'responses.*.question_id' => 'required',
             'responses.*.answer_id' => 'required',
             'responses.*.user_id' => 'required',
+            'uuid' => 'required|uuid',
             'notes' => 'max:600'
         ]);
 
 //        ddd($data);
 
-        $survey = $questionCategory->surveys()->create(['user_id' => auth()->id(), 'notes' => $data['notes']]);
+        $survey = $questionCategory->surveys()->create([
+            'uuid' => $data['uuid'],
+            'user_id' => auth()->id(),
+            'notes' => $data['notes']
+        ]);
 
 
         $survey->responses()->createMany($data['responses']);
