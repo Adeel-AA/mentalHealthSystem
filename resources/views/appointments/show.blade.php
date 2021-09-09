@@ -44,7 +44,7 @@
 
                     eventDidMount: function (info) {
                         $(info.el).tooltip({
-                            title: 'This appointment is with: ' + info.event.extendedProps.user_name,
+                            title: 'This appointment will be with: ' + info.event.extendedProps.user_name,
                             placement: 'top',
                             trigger: 'hover',
                             container: 'body'
@@ -58,36 +58,20 @@
                     },
 
                     eventClick: function (info) {
-                        var eventBook = confirm("Do you want to book this appointment with " + info.event.extendedProps.user_name + "?");
+                        var eventDelete = confirm("Do you want to cancel this appointment?");
                         var eventObj = info.event;
 
-                        if (eventBook) {
-                            var comment = prompt("Please add any comments for this appointment (optional)");
+                        if (eventDelete) {
                             $.ajax({
                                 url: SITEURL + '/appointments',
                                 data: {
-                                    user_id: {{auth()->user()->id}},
-                                    counsellor_id: eventObj.extendedProps.user_id,
-                                    user_name: eventObj.extendedProps.user_name,
-                                    start: eventObj.startStr,
-                                    end: eventObj.endStr,
-                                    comments: comment
+                                    id: eventObj.id
                                 },
-                                type: 'POST',
+                                type: 'DELETE',
                                 success: function () {
-                                    $.ajax({
-                                        url: SITEURL + '/availability',
-                                        data: {
-                                            id: eventObj.id
-                                        },
-                                        type: 'DELETE',
-                                        success: function () {
-                                            eventObj.remove();
-                                        }
-
-                                    })
                                     eventObj.remove();
-                                    alert('Your appointment has been successfully booked');
+                                    alert('Appointment successfully cancelled');
+
                                 }
 
                             })
@@ -169,6 +153,6 @@
             </div>
         </div>
     </div>
-
+    <br>
     </html>
 </x-app>

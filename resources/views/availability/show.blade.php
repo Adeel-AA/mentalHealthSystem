@@ -81,7 +81,7 @@
                                 type: 'DELETE',
                                 success: function () {
                                     eventObj.remove();
-                                    alert('Availability sucessfully deleted');
+                                    alert('Availability successfully removed');
                                 }
 
                             })
@@ -108,6 +108,8 @@
                         <p>Please select a day where you want to set availability</p>
                         <br>
                         <p>You can drag along the time on the left side to set availability on that day</p>
+                        <br>
+                        <p>If you want to remove your available slot please select it to remove</p>
                     </div>
                     <br>
                     <div id='calendar'></div>
@@ -116,6 +118,6 @@
             </div>
         </div>
     </div>
-
+    <br>
     </html>
 </x-app>

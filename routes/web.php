@@ -35,16 +35,20 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/appointments/book', [AppointmentController::class, 'book'])->name('book-appointment');
     Route::get('/appointments', [AppointmentController::class, 'show'])->name('my-appointments');
+    Route::delete('/appointments', [AppointmentController::class, 'destroy']);
+    Route::delete('/availability', [AvailabilityController::class, 'destroy']);
+
     Route::get('/appointments/json', [AppointmentController::class, 'jsonFeed']);
+    Route::get('/availability/json', [AvailabilityController::class, 'jsonFeed']);
 
     Route::post('/appointments', [AppointmentController::class, 'store']);
 
-    Route::get('/availability/json', [AvailabilityController::class, 'jsonFeed']);
+    Route::post('/availability', [AvailabilityController::class, 'store']);
 
+    Route::get('/availability', [AvailabilityController::class, 'show'])->name('availability');
+    
     Route::middleware('can:change-availability')->group(function () {
 
-        Route::get('/availability', [AvailabilityController::class, 'show'])->name('availability');
-        Route::post('/availability', [AvailabilityController::class, 'store']);
 
     });
 
@@ -55,8 +59,6 @@ Route::middleware('auth')->group(function () {
         Route::delete('/question-categories/{questionCategory}/questions/{question}', [QuestionController::class, 'destroy']);
     });
 
-
-    Route::delete('/availability', [AvailabilityController::class, 'destroy']);
 
     Route::get('/question-categories', [QuestionCategoryController::class, 'index'])->name('view-question-categories');
 

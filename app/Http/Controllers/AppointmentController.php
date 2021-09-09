@@ -40,6 +40,12 @@ class AppointmentController extends Controller {
 
     }
 
+    public function destroy(Request $request)
+    {
+        Appointment::find($request->id)->delete();
+
+    }
+
     public function jsonFeed()
     {
         $appointments = Appointment::where('user_id', auth()->user()->id)->get();
