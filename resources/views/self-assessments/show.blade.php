@@ -21,7 +21,7 @@
                                     @foreach($questionCategories as $questionCategory)
                                         @if($questionCategory->id === $response->question_category_id)
                                             <a class="stretched-link"
-                                               href="{{ route('show-my-self-assessment') }}">Assessment
+                                               href="{{ route('show-my-self-assessment', [$questionCategory->id, $response->uuid]) }}">Assessment
                                                 Submitted: {{ \Carbon\Carbon::parse($response->created_at)->toRfc7231String() }}</a>
                                             <small id="question_type"
                                                    class="form-text text-muted">Question

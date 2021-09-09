@@ -24,26 +24,42 @@ class SelfAssessmentController extends Controller {
         return view('self-assessments.show', compact('responses', 'questionCategories'));
     }
 
-    public function showAssessment()
+    public function showAssessment(QuestionCategory $questionCategory, string $uuid)
     {
-        $questionCategories = QuestionCategory::all();
-        $responses = Survey::where('user_id', auth()->user()->id)->get();
+
+        $questionCategory->load('questions.answers.responses');
+//        $questionCategory = QuestionCategory::with('questions.answers.responses')->get();
+        
+        $responses = Survey::where('uuid', $uuid)->get();
         $surveyResponses = SurveyResponse::where('user_id', auth()->user()->id)->get();
+
+
         foreach ($responses as $response)
         {
-            foreach ($surveyResponses as $surveyResponse)
+
+            if ($response->user_id === auth()->user()->id)
             {
-
-                if ($response->user_id === auth()->user()->id && $surveyResponse->user_id === auth()->user()->id)
-                {
-                    return view('self-assessments.show-assessment', compact('questionCategories', 'responses', 'surveyResponses'));
-
-                }
-
+                return view('self-assessments.show-assessment', compact('questionCategory', 'responses', 'surveyResponses'));
             }
-
         }
+
+
         abort(404);
+
+
+//        foreach ($responses as $response)
+//        {
+//            foreach ($surveyResponses as $surveyResponse)
+//            {
+//
+//                if ($response->user_id === auth()->user()->id && $surveyResponse->user_id === auth()->user()->id)
+//                {
+
+//                }
+//
+//            }
+//
+//        }
 
     }
 }
