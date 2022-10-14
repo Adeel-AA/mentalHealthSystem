@@ -27,6 +27,6 @@
         "vue-template-compiler": "^2.6.12"
     },
     "dependencies": {
-        "fullcalendar": "^5.8.0"
+        "fullcalendar": "^5.11.3"
     }
 }
